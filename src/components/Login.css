@@ -1,0 +1,196 @@
+/* Full page split screen */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+/* Right panel with login form and slide-in */
+.login-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  animation: slideInRight 1s ease-out forwards;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Slide animations */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Form Styles */
+.login-form h2 {
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+  display: block;
+  color: rgb(10, 9, 9);
+  font-size: 14px;
+}
+
+.login-button {
+  background: #FCD915;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: orange;
+}
+
+.error-msg {
+  color: rgb(145, 10, 25);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.form-box {
+  background: white;
+  padding: 40px;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  color: #000;
+}
+
+/* Popup styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.popup-box h2 {
+  margin-bottom: 10px;
+  color: #db1d1d;
+}
+
+.popup-box p {
+  color: #333;
+  font-size: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* 🔁 Responsive Breakpoints */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-container::before {
+    display: none;
+  }
+
+  .login-form {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none;
+    height: 100%;
+    padding: 30px 20px;
+  }
+
+  .form-box {
+    padding: 30px 20px;
+  }
+
+  .login-form h2 {
+    font-size: 32px;
+  }
+
+  .popup-box {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form h2 {
+    font-size: 26px;
+  }
+
+  .login-button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .form-box {
+    padding: 20px;
+  }
+
+  .popup-box p {
+    font-size: 14px;
+  }
+}
+

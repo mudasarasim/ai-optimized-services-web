@@ -1,0 +1,150 @@
+/* Full page split screen for both login and signup */
+.auth-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  flex-direction: row;
+  margin-bottom: 100px;
+}
+
+
+/* Slide-in animation keyframe for left panel */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Right form panel (Signup/Login) with right-side animation */
+.auth-form {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: rgb(16, 2, 2);
+  font-weight: 800;
+  animation: slideInRight 1s ease-out forwards;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Slide-in animation keyframe for right panel */
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+input{
+  
+}
+
+.input-group input {
+  border: 1px solid black !important;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+  display: block;
+  color: white;
+  font-size: 14px;
+}
+
+.auth-button {
+ background: #FCD915;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: orange;
+}
+
+.error-msg {
+  color: yellow;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.form-box {
+  background: white;
+  padding: 40px;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  color: #000;
+}
+
+/* 🔁 Responsive Design */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+  }
+
+  .auth-container::before {
+    display: none;
+  }
+
+  .auth-form {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none;
+    height: 100%;
+    padding: 30px 20px;
+  }
+
+  .form-box {
+    padding: 30px 20px;
+  }
+
+  .auth-form h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form h2 {
+    font-size: 26px;
+  }
+
+  .auth-button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .form-box {
+    padding: 20px;
+  }
+}

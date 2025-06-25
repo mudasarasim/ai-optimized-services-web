@@ -1,0 +1,75 @@
+/* ServiceDetail.css */
+
+.service-detail-page {
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+}
+
+.service-detail-page h2 {
+  color: #343a40;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.form-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+textarea.form-control {
+  min-height: 100px;
+}
+
+.addon-card {
+  flex: 0 0 auto;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.addon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.addon-card img {
+  height: 120px;
+  object-fit: cover;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.addon-card .card-body {
+  padding: 10px;
+}
+
+.btn-success, .btn-warning {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-warning {
+  background-color: #ff7a00;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e66a00;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+}
+
+.text-primary {
+  color: #007bff;
+}

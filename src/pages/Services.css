@@ -1,0 +1,128 @@
+/* Services.css */
+
+/* Header Section */
+.services-header {
+  background: url('../assets/Images/y.jpg') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+/* Ensure all service images are same height */
+.service-image {
+  height: 220px;            /* or any height you prefer */
+  object-fit: cover;        /* this crops while preserving aspect ratio */
+  width: 100%;              /* ensures full width */
+  border-radius: 8px 8px 0 0;
+}
+
+/* Optional: Make all cards the same height */
+.card.card-style1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.services-header .overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 60px 20px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.services-header .title {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.services-header .breadcrumb {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.services-header .arrow {
+  margin: 0 5px;
+}
+
+.services-header .active {
+  color: #f39c12;
+}
+
+/* Our Services Heading */
+.our-services-section {
+  padding: 40px 0 20px;
+}
+
+.our-services-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Service Cards */
+.service-card {
+  padding: 40px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.service-card img {
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  color: #8722e6;
+}
+
+.service-card h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.service-card p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Book Services Button */
+.service-card .btn {
+  background: navy;
+  color: white;
+  border: none;
+  transition: 0.3s ease;
+  border-radius: 8px;
+}
+
+.service-card .btn:hover {
+  background: #555;
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-header .title {
+    font-size: 2.2rem;
+  }
+
+  .our-services-section h2 {
+    font-size: 2rem;
+  }
+
+  .service-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .service-card p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,66 @@
+.location-box {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  max-width: 650px;
+  width: 90%;
+  gap: 10px;
+}
+
+.input-wrapper {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 10px 10px 35px; /* left padding to make space for the icon */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+}
+label{
+  color: black;
+  font-weight: bold;
+}
+.icon-inside {
+  position: absolute;
+  left: 10px;
+  top: 57%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 18px;
+}
+
+::placeholder{
+  padding-left: 23px;
+}
+
+.location-box button {
+  background: #e6faff;
+  color: #00bcd4;
+  border: 2px solid #00bcd4;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-left: -10px;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.location-box button:hover {
+  background: #d2f3ff;
+}
+
+@media (max-width: 551px) {
+.location-box button{
+  margin-top: 40px;
+}
+}
