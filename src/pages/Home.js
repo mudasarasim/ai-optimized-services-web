@@ -123,6 +123,7 @@ const isInUAE = (lat, lng) => {
             <label>Where would you like to receive your service?</label>
             <i className="fa fa-map-marker icon-inside"></i>
             <input
+             style={{paddingLeft: '30px'}}
               type="text"
               placeholder="Search for area, street name, landmark..."
               value={selectedLocation || location}
@@ -342,15 +343,15 @@ const isInUAE = (lat, lng) => {
             </div>
             
           </div>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '40px'}}>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '45px', marginBottom: '-40px'}}>
             <Link to={'/services'} className='butn'>See More</Link>
           </div>
         </div>
       </section>
 
        <section>
-        <div class="container">
-          <div class="text-center mb-2-8 mb-lg-6">
+        <div class="container" style={{marginTop: '-45px'}}>
+          <div class="text-center mb-2-8">
             <h2 class="display-18 display-md-16 display-lg-14 font-weight-700">Why choose <strong class="text-primary font-weight-700">Us</strong></h2>
             <span>The trusted source for complete cleaning, maintenance & lifestyle services in the UAE.</span>
           </div>

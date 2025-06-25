@@ -38,21 +38,18 @@ label{
   font-size: 18px;
 }
 
-::placeholder{
-  padding-left: 23px;
-}
 
 .location-box button {
   background: #e6faff;
   color: #00bcd4;
   border: 2px solid #00bcd4;
   border-radius: 4px;
-  padding: 10px 14px;
+  padding: 11px 14px;
   margin-left: -10px;
   font-size: 12px;
   white-space: nowrap;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .location-box button:hover {

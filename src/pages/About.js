@@ -38,7 +38,7 @@ const About = () => {
         </section>
 
         <section>
-            <div class="container">
+            <div class="container" style={{marginTop: '-40px'}}>
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-2-9 mb-lg-0">
                         <div class="position-relative">
@@ -54,26 +54,27 @@ const About = () => {
                     </div>
                     <div class="col-lg-6">
                         <div class="pl-lg-4">
-                            <h5 class="text-primary h6">About Us</h5>
-                            <h2 class="display-20 display-md-18 display-lg-16 mb-1-6">We have long stretches of encounters on cleaning</h2>
-                            <p class="mb-1-6">We offerings for all sorts and sizes of complexes from small to big places of work and industrial facilities to industrial, warehouse, and retail locations.</p>
+                            <h2 class="display-20 display-md-18 display-lg-16">ABOUT US</h2>
+                            <p class="mb-1-3">We are your all-in-one solution for professional maintenance, installation, cleaning, salon, and cargo services across the UAE. With a diverse range of offerings and a team of skilled, certified technicians and service experts, we bring convenience, quality, and care right to your doorstep.</p>
+                            <p className='mb-1-3'>Whether it’s electromechanical installations, plumbing and sanitary work, false ceiling or plaster works, or A/C servicing and maintenance, we provide technically sound solutions with precision and reliability. We also specialize in painting contracting, wallpaper fixing, and handyman services, making us the ideal partner for both new setups and ongoing property maintenance.</p>
+                            <p className='mb-1-3'>In addition, we offer premium at-home salon services for men and women — combining luxury and hygiene for a personalized grooming experience. Need to move or ship? Our cargo and moving services ensure your belongings are handled with care, whether locally or internationally. We are commited:</p>
                             <div class="row mb-1-6">
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <ul class="list-style1 mb-0">
-                                        <li>Experienced Team</li>
-                                        <li>Online Booking</li>
-                                        <li>100% Satisfaction</li>
+                                        <li>Quality service across all verticals</li>
+                                        <li>Prompt and professional execution</li>
+                                        
                                     </ul>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <ul class="list-style1 mb-0">
-                                        <li>Latest Equipment</li>
-                                        <li>Certified Company</li>
-                                        <li>24/7 Online Support</li>
+                                        <li>Transparent pricing</li>
+                                        <li>Customer-first approach</li>
+                                       
                                     </ul>
                                 </div>
                             </div>
-                            <a class="butn" href="#!">Discover More</a>
+                          
                         </div>
                     </div>
                 </div>

@@ -25,10 +25,10 @@ const Footer = () => {
                         <div class="pl-lg-1-6">
                             <h3 class="text-primary h5 mb-1-6">Our Services</h3>
                             <ul class="footer-list">
-                                <li><a href="#!">House Cleaning</a></li>
-                                <li><a href="#!">Glass Cleaning</a></li>
-                                <li><a href="#!">Toliet Cleaning</a></li>
-                                <li><a href="#!">Office Cleaning</a></li>
+                                <li><Link to={'/services'}>House Cleaning</Link></li>
+                                <li><Link to={'/services'}>Glass Cleaning</Link></li>
+                                <li><Link to={'/services'}>Toliet Cleaning</Link></li>
+                                <li><Link to={'/services'}>Office Cleaning</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -37,10 +37,10 @@ const Footer = () => {
                         <div class="footer-contact-info">
                             <div class="content">
                                 <address class="text-white">Office No:9, Al Hazm Building, Hor AL Anz, Dubai</address>
-                                <a href="#!" class="white-hover"><i class="fas fa-angle-right"></i>Get Direction</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=25.281887,55.335413" target="_blank" class="white-hover"><i class="fas fa-angle-right"></i>Get Direction</a>
                             </div>
                             <div class="box">
-                                <h2><span>Get Free Estimate</span> +971 525 434 708 
+                                <h2 style={{fontSize: '22px'}}><span>Get Free Estimate</span> +971 525 434 708 
                                 </h2>
                                 <span class="icon"><i class="fas fa-phone"></i></span>
                             </div>
