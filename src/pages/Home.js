@@ -1,43 +1,12 @@
 import React, { useState } from 'react';
+import MapModal from '../components/MapModal';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
-import backgroundImage from '../assets/Images/y.jpg';
-import image14 from '../assets/Images/image14.png';
-import image15 from '../assets/Images/image15.png';
-import image16 from '../assets/Images/image16.png';
-import image17 from '../assets/Images/image17.png';
-import image18 from '../assets/Images/image18.png';
-import image19 from '../assets/Images/image19.png';
-import image20 from '../assets/Images/image20.png';
-import image21 from '../assets/Images/image21.png';
-import image22 from '../assets/Images/image22.png';
-import image23 from '../assets/Images/image23.png';
-import mpng from '../assets/Images/m.png';
-import lpng from '../assets/Images/l.png';
-import opng from '../assets/Images/o.png';
 import TestimonialCarousel from '../components/TestimonialCarousel';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-
-
-
-
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBroom,
-  faFemale,
-  faSpa,
-  faSnowflake,
-  faBug,
-  faPumpSoap,
-  faCouch,
-  faUser,
-  faTools,
-  faCar,
-  faSocks,
-  faStar, faCalendarAlt, faHome, faThLarge,
-  faLightbulb,
-  faPalette,
-  faScrewdriverWrench
+  faBroom, faFemale, faSpa, faSnowflake, faBug, faPumpSoap, faCouch,
+  faUser, faTools, faCar, faSocks, faLightbulb, faPalette, faScrewdriverWrench
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -57,89 +26,108 @@ const servicesData = [
   { label: 'Pest Control', icon: faBug },
   { label: 'Disinfection', icon: faPumpSoap },
 ];
+const uaeLocations = [
+  "Dubai",
+  "Abu Dhabi",
+  "Sharjah",
+  "Ajman",
+  "Fujairah",
+  "Ras Al Khaimah",
+  "Umm Al Quwain"
+];
 
 const Home = () => {
-   const [message, setMessage] = useState('');
-    
-      const handleWhatsAppSend = () => {
-        const phoneNumber = "971526353298"; // AIO WhatsApp Number (without '+')
-        const encodedMsg = encodeURIComponent(message || "Hi AIO SERVICES, I need some help.");
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
-        window.open(whatsappUrl, "_blank");
-      };
+  const [showMap, setShowMap] = useState(false);
   const [location, setLocation] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
-const isInUAE = (lat, lng) => {
-  // UAE approximate bounding box
-  return (
-    lat >= 22.5 &&
-    lat <= 26.5 &&
-    lng >= 51.5 &&
-    lng <= 56.5
-  );
-};
+  const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
 
-  const handleLocationChange = (e) => setLocation(e.target.value);
+  const handleSetLocation = () => {
+    setShowMap(true);
+  };
 
- const handleSetLocation = () => {
-  if (!navigator.geolocation) {
-    alert('Geolocation is not supported by your browser.');
-    return;
-  }
+  const handleSelectSuggestion = (city) => {
+    setLocation(city);
+    setSuggestions([]);
+    navigate('/services'); // Or perform any other action
+  };
 
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const { latitude, longitude } = position.coords;
-
-      if (isInUAE(latitude, longitude)) {
-        const coords = `Lat: ${latitude.toFixed(4)}, Lng: ${longitude.toFixed(4)}`;
-        setLocation(coords);
-      } else {
-        alert('Service is only available in the United Arab Emirates.');
-      }
-    },
-    (error) => {
-      console.error(error);
-      alert('Unable to retrieve your location. Please allow location access.');
-    }
-  );
-};
+  const handleLocationSelect = (placeName) => {
+    setLocation(placeName);
+    setShowMap(false);
+    navigate('/services');
+  };
 
   return (
     <>
-      <section class="bg-img full-screen cover-background top-position1 min-vh-100 p-0 left-overlay" data-overlay-dark="8" data-background="img/banner/banner-04.jpg" style={{ backgroundImage: 'url("img/bg1.jpeg")', minHeight: '896px' }}>
-        <div class="container d-flex flex-column py-10 py-sm-8 py-md-0">
-          <div class="row align-items-center min-vh-100">
-            <div class="col-12">
-              <div class="row align-items-center mt-10">
-                <div class="col-lg-12 mb-5 mb-lg-0">
-                  <h6 class="text-primary text-center">Experience Top-to-Bottom Home Care!</h6>
-                  <h2 style={{ fontSize: '35px' }} class="text-white display-16 display-md-9 display-lg-7 display-xl-4 mb-1-6 font-weight-700 text-center text-shadow">From cleaning to plumbing, AC to beauty — services your family will thank you for!</h2>
-
+      <section
+        className="bg-img full-screen cover-background top-position1 min-vh-100 p-0 left-overlay"
+        data-overlay-dark="8"
+        data-background="img/banner/banner-04.jpg"
+        style={{ backgroundImage: 'url("img/bg1.jpeg")', minHeight: '896px' }}
+      >
+        <div className="container d-flex flex-column py-10 py-sm-8 py-md-0">
+          <div className="row align-items-center min-vh-100">
+            <div className="col-12">
+              <div className="row align-items-center mt-10">
+                <div className="col-lg-12 mb-5 mb-lg-0 text-center">
+                  <h6 className="text-primary">Get amazing cleaning experience</h6>
+                  <h2 className="text-white font-weight-700 text-shadow" style={{ fontSize: '35px' }}>
+                    From cleaning to plumbing, AC to beauty services - your family will thank you for!
+                  </h2>
                 </div>
-                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }}>
-        <div className="location-box">
-          <div className="input-wrapper">
-            <label>Where would you like to receive your service?</label>
-            <i className="fa fa-map-marker icon-inside"></i>
-            <input
-             style={{paddingLeft: '30px'}}
-              type="text"
-              placeholder="Search for area, street name, landmark..."
-              value={selectedLocation || location}
-              onChange={handleLocationChange}
-            />
-          </div>
-          <button onClick={handleSetLocation}>Set my location</button>
-        </div>
-      </div>
+
+                <div className="d-flex align-items-center justify-content-center mt-4">
+                  <div className="location-box">
+                    <div className="input-wrapper">
+                      <label>Where would you like to receive your service?</label>
+                      <i className="fa fa-map-marker icon-inside"></i>
+                      <input
+                        type="text"
+                         style={{paddingLeft: '30px'}}
+                        placeholder="Start typing your city (UAE only)"
+                        value={location}
+                        onChange={(e) => {
+                          setLocation(e.target.value);
+                          setSuggestions(
+                            uaeLocations.filter((city) =>
+                              city.toLowerCase().startsWith(e.target.value.toLowerCase())
+                            )
+                          );
+                        }}
+                        className="form-control"
+                      />
+                      {location && suggestions.length > 0 && (
+                        <ul className="suggestion-list">
+                          {suggestions.map((city, index) => (
+                            <li key={index} onClick={() => handleSelectSuggestion(city)}>
+                              {city}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {location && suggestions.length === 0 && (
+                        <p style={{ color: 'red', fontSize: '14px' }}>Not Found</p>
+                      )}
+
+                    </div>
+                    <button onClick={handleSetLocation} style={{borderRadius: '0px 8px 8px 0px'}}>Set my location</button>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
       </section>
 
-  
+      {showMap && (
+        <MapModal
+          onClose={() => setShowMap(false)}
+          onLocationSelect={handleLocationSelect}
+        />
+      )}
+
 
       <section class="bg-light bg-img cover-background mt-1" data-overlay-dark="0" data-background="img/bg/bg-06.png">
         <div class="container">
@@ -149,208 +137,208 @@ const isInUAE = (lat, lng) => {
           </div>
 
           <div class="row">
-          
-              <div class="col-md-6 col-lg-4 mb-1-9">
-                <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0" style={{
-                  backgroundImage: 'url("img/pl.jpg")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '300px',
-                  transition: '0.3s'
-                }}></div>
-                <div class="card-body">
-                  <i class="fas fa-wrench mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">Plumbing & Sanitary Installation</a></h3>
-                  <p>We are already high standards to have you see us as the best in the industry.</p>
-                  <Link to={'/services'} class="read-more">read more</Link>
-                </div>
-              </div>
-               </Link>
-            </div>
-         
+
             <div class="col-md-6 col-lg-4 mb-1-9">
               <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0"
-                  style={{
-                    backgroundImage: 'url("img/wa.jpeg")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '300px',
-                    transition: '0.3s'
-                  }}
-                ></div>
-                <div class="card-body">
-                  <i class="fas fa-border-style mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">Wallpaper Fixing Works</a></h3>
-                  <p>We are already high standards to have you see us as the best in the industry.</p>
-                  <a href="#!" class="read-more">read more</a>
-                </div>
-              </div>
-               </Link>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-1-9">
-              <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0" style={{
-                  backgroundImage: 'url("img/services/service-03.jpg")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '300px',
-                  transition: '0.3s'
-                }}></div>
-                <div class="card-body">
-                  <i class="fas fa-fan mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">A/C Installation & Maintenance</a></h3>
-                  <p>We are already high standards to have you see us as the best in the industry.</p>
-                  <a href="#!" class="read-more">read more</a>
-                </div>
-              </div>
-               </Link>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-1-9 mb-lg-0">
-              <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0"
-                  style={{
-                    backgroundImage: 'url("img/services/service-01.jpg")',
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0" style={{
+                    backgroundImage: 'url("img/pl.jpg")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     height: '300px',
                     transition: '0.3s'
                   }}></div>
-                <div class="card-body">
-                  <i class="fas fa-home mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">Home Cleaning</a></h3>
-                  <p>We are already high standards to have you see us as the best in the industry.</p>
-                  <a href="#!" class="read-more">read more</a>
+                  <div class="card-body">
+                    <i class="fas fa-wrench mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Plumbing & Sanitary Installation</a></h3>
+                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <Link to={'/services'} class="read-more">read more</Link>
+                  </div>
                 </div>
-              </div>
-               </Link>
+              </Link>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-1-9">
+              <Link to={'/services'}>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0"
+                    style={{
+                      backgroundImage: 'url("img/wa.jpeg")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      height: '300px',
+                      transition: '0.3s'
+                    }}
+                  ></div>
+                  <div class="card-body">
+                    <i class="fas fa-border-style mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Wallpaper Fixing Works</a></h3>
+                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-1-9">
+              <Link to={'/services'}>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0" style={{
+                    backgroundImage: 'url("img/services/service-03.jpg")',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '300px',
+                    transition: '0.3s'
+                  }}></div>
+                  <div class="card-body">
+                    <i class="fas fa-fan mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">A/C Installation & Maintenance</a></h3>
+                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-1-9 mb-lg-0">
+              <Link to={'/services'}>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0"
+                    style={{
+                      backgroundImage: 'url("img/services/service-01.jpg")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      height: '300px',
+                      transition: '0.3s'
+                    }}></div>
+                  <div class="card-body">
+                    <i class="fas fa-home mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Home Cleaning</a></h3>
+                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
+                </div>
+              </Link>
             </div>
             <div class="col-md-6 col-lg-4 mb-1-9 mb-md-0">
               <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0"
-                  style={{
-                    backgroundImage: 'url("img/car.png")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '300px',
-                    transition: '0.3s'
-                  }}
-                ></div>
-                <div class="card-body">
-                  <i class="fas fa-car mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">Car Wash</a></h3>
-                  <p>We are already high standards to have you see us as the best in the industry.</p>
-                  <a href="#!" class="read-more">read more</a>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0"
+                    style={{
+                      backgroundImage: 'url("img/car.png")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      height: '300px',
+                      transition: '0.3s'
+                    }}
+                  ></div>
+                  <div class="card-body">
+                    <i class="fas fa-car mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Car Wash</a></h3>
+                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
                 </div>
-              </div>
-               </Link>
+              </Link>
             </div>
             <div class="col-md-6 col-lg-4">
               <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0"
-                  style={{
-                    backgroundImage: 'url("img/sal.jpg")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '300px',
-                    transition: '0.3s'
-                  }}
-                ></div>
-                <div class="card-body">
-                  <i class="fas fa-scissors mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">Men’s Salon</a></h3>
-                  <p>We are already high standards to have you see us as the best in the industry.</p>
-                  <a href="#!" class="read-more">read more</a>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0"
+                    style={{
+                      backgroundImage: 'url("img/sal.jpg")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      height: '300px',
+                      transition: '0.3s'
+                    }}
+                  ></div>
+                  <div class="card-body">
+                    <i class="fas fa-scissors mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Men’s Salon</a></h3>
+                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
                 </div>
-              </div>
-               </Link>
-            </div>
-
-
-             <div class="col-md-6 col-lg-4 mt-4">
-              <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0"
-                  style={{
-                    backgroundImage: 'url("img/Women’s Salon.jpg")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '300px',
-                    transition: '0.3s'
-                  }}
-                ></div>
-                <div class="card-body">
-                  <i class="fas fa-scissors mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">Women’s Salon Beautiful</a></h3>
-                  <p>Visit us at Beauty Salon and immerse your self inside the world of refined beauty offerings.</p>
-                  <a href="#!" class="read-more">read more</a>
-                </div>
-              </div>
-               </Link>
-            </div>
-
-
-              <div class="col-md-6 col-lg-4 mt-4">
-                <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0"
-                  style={{
-                    backgroundImage: 'url("img/cr.jpeg")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '300px',
-                    transition: '0.3s'
-                  }}
-                ></div>
-                <div class="card-body">
-                  <i class="fa-solid fa-water mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">PRECISION IN CRAFTSMANSHIP</a></h3>
-                  <p>Professional inspection and assessment of your underground tank.</p>
-                  <a href="#!" class="read-more">read more</a>
-                </div>
-              </div>
               </Link>
             </div>
-            
-             <div class="col-md-6 col-lg-4 mt-4">
+
+
+            <div class="col-md-6 col-lg-4 mt-4">
               <Link to={'/services'}>
-              <div class="card card-style3">
-                <div class="background-image bg-img" data-overlay-dark="0"
-                  style={{
-                    backgroundImage: 'url("img/Cargo Services.jpg")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '300px',
-                    transition: '0.3s'
-                  }}
-                ></div>
-             
-                <div class="card-body">
-                  <i class="fa-solid fa-truck mb-4 display-14"></i>
-                  <h3 class="h5 mb-4"><a href="#!">Cargo Services</a></h3>
-                  <p>Ever dealt with a logistics provider that gives you vague updates like “Your shipment is in transit”.</p>
-                  <a href="#!" class="read-more">read more</a>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0"
+                    style={{
+                      backgroundImage: 'url("img/Women’s Salon.jpg")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      height: '300px',
+                      transition: '0.3s'
+                    }}
+                  ></div>
+                  <div class="card-body">
+                    <i class="fas fa-scissors mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Women’s Salon Beautiful</a></h3>
+                    <p>Visit us at Beauty Salon and immerse your self inside the world of refined beauty offerings.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
                 </div>
-              </div>
               </Link>
             </div>
-            
+
+
+            <div class="col-md-6 col-lg-4 mt-4">
+              <Link to={'/services'}>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0"
+                    style={{
+                      backgroundImage: 'url("img/cr.jpeg")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      height: '300px',
+                      transition: '0.3s'
+                    }}
+                  ></div>
+                  <div class="card-body">
+                    <i class="fa-solid fa-water mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">PRECISION IN CRAFTSMANSHIP</a></h3>
+                    <p>Professional inspection and assessment of your underground tank.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mt-4">
+              <Link to={'/services'}>
+                <div class="card card-style3">
+                  <div class="background-image bg-img" data-overlay-dark="0"
+                    style={{
+                      backgroundImage: 'url("img/Cargo Services.jpg")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      height: '300px',
+                      transition: '0.3s'
+                    }}
+                  ></div>
+
+                  <div class="card-body">
+                    <i class="fa-solid fa-truck mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Cargo Services</a></h3>
+                    <p>Ever dealt with a logistics provider that gives you vague updates like “Your shipment is in transit”.</p>
+                    <a href="#!" class="read-more">read more</a>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
           </div>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '45px', marginBottom: '-40px'}}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '45px', marginBottom: '-40px' }}>
             <Link to={'/services'} className='butn'>See More</Link>
           </div>
         </div>
       </section>
 
-       <section>
-        <div class="container" style={{marginTop: '-45px'}}>
+      <section>
+        <div class="container" style={{ marginTop: '-40px' }}>
           <div class="text-center mb-2-8">
             <h2 class="display-18 display-md-16 display-lg-14 font-weight-700">Why choose <strong class="text-primary font-weight-700">Us</strong></h2>
             <span>The trusted source for complete cleaning, maintenance & lifestyle services in the UAE.</span>
@@ -360,7 +348,7 @@ const isInUAE = (lat, lng) => {
               <div class="pr-md-3">
                 <div class="text-center text-sm-right mb-2-9">
                   <div class="mb-4">
-                    <img src="img/pl.jpg" style={{height: '70px', width: '80px'}} alt="..." class="rounded-circle" />
+                    <img src="img/pl.jpg" style={{ height: '70px', width: '80px' }} alt="..." class="rounded-circle" />
                   </div>
                   <h4 class="h5">Plumbing & Sanitary Installation</h4>
                   <p class="display-30 mb-0">Expert plumbing solutions to keep your home running smoothly — reliable, fast, and affordable.</p>
@@ -391,7 +379,7 @@ const isInUAE = (lat, lng) => {
 
                 <div class="text-center text-sm-left">
                   <div class="mb-4">
-                    <img src="img/wa.jpeg" style={{height: '70px', width: '70px'}} alt="..." class="rounded-circle" />
+                    <img src="img/wa.jpeg" style={{ height: '70px', width: '70px' }} alt="..." class="rounded-circle" />
                   </div>
                   <h4 class="h5">Painting & Wallpaper Fixing</h4>
                   <p class="display-30 mb-0">Give your walls a fresh, flawless look with professional painting and wallpaper services.</p>
@@ -499,20 +487,20 @@ const isInUAE = (lat, lng) => {
       </section>
 
       <section>
-        <div class="container" style={{marginTop: '-120px'}}>
+        <div class="container" style={{ marginTop: '-120px' }}>
           <div class="row align-items-center">
-          
+
             <div class="col-lg-6">
               <div class="pl-lg-1-9">
                 <h2 class="display-18 display-md-16 display-lg-14 mb-1-6 font-weight-700">Manage all to-dos with a  <strong class="text-primary font-weight-700">single tap!</strong></h2>
                 <p class="mb-2-0 display-29 display-md-28">    Schedule and manage appointments effortlessly, explore professional profiles and reviews,
-      access exclusive offers, and enjoy much more—all in one seamless platform made for your convenience!
-</p>
-               <a className='butn'>Coming Soon</a>
-               
+                  access exclusive offers, and enjoy much more—all in one seamless platform made for your convenience!
+                </p>
+                <a className='butn'>Coming Soon</a>
+
               </div>
             </div>
-              <div class="col-lg-6 mb-2-9 mb-lg-0">
+            <div class="col-lg-6 mb-2-9 mb-lg-0">
               <div class="about-wrapper">
                 <div class="about-img">
                   <img class="rounded" src="img/app.jpg" alt="..." />
@@ -523,9 +511,6 @@ const isInUAE = (lat, lng) => {
 
         </div>
       </section>
-       <div className="whatsapp-button" onClick={handleWhatsAppSend}>
-              <FontAwesomeIcon icon={faWhatsapp} />
-        </div>
     </>
   );
 };

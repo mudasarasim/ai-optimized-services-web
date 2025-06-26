@@ -141,7 +141,7 @@ const Contact = () => {
                                     <div class="media-body">
                                         <h3 class="h5 text-secondary">Call Us</h3>
                                         <ul class="list-unstyled mb-0">
-                                            <li><a href="tel:+1234567890" class="text-secondary">+(92)123 456 7890</a></li>
+                                            <li><a href="tel:+1234567890" class="text-secondary">+971 525 434 708</a></li>
                                         </ul>
 
                                     </div>

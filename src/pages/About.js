@@ -43,7 +43,7 @@ const About = () => {
                     <div class="col-lg-6 mb-2-9 mb-lg-0">
                         <div class="position-relative">
                             <div class="position-relative z-index-1 py-2-9 py-xl-7 px-1-6 px-md-2-9 px-lg-1-6">
-                                <img src="img/content/about-04.jpg" class="rounded" alt="..." />
+                                <img src="img/about.png" class="rounded" alt="..." />
                             </div>
                             <span class="position-absolute w-auto top left z-index-0"><img src="img/content/bg-pattern.png" alt="..." /></span>
                             <div class="counter-style1 rounded">
@@ -82,7 +82,7 @@ const About = () => {
         </section>
 
         <section class="bg-light">
-            <div class="container">
+            <div class="container" style={{marginTop: '-30px'}}>
                 <div class="text-center mb-5">
                     <h5 class="text-primary h6">Our Process</h5>
                     <h2 class="display-20 display-md-18 display-lg-16">Impressive simple cycle steps</h2>
