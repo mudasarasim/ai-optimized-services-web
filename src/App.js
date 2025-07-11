@@ -28,25 +28,6 @@ import WomenOrder from "./pages/WomenOrder";
 import CargoOrder from "./pages/CargoOrder";
 import MenOrder from "./pages/MenOrder";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function App() {
   return (
     <Router>
@@ -59,62 +40,24 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login/>} />
           <Route path="/Signup" element={<Signup/>} />
-  <Route path="/place-order/:serviceId" element={<PlaceOrder />} />
-  <Route path="/my-orders" element={<MyOrders />} />
-  <Route path="/FurnitureOrder/:serviceId" element={<FurnitureOrder />} />
-  <Route path="/AcOrder/:serviceId" element={<AcOrder />} />
-  <Route path="/AcRepaireOrder/:serviceId" element={<AcRepaireOrder />} />
-  <Route path="/SpaOrder/:serviceId" element={< SpaOrder />} />
-  <Route path="/SalonOrder/:serviceId" element={< SalonOrder />} />
-  <Route path="/LabOrder/:serviceId" element={<LabOrder />} />
-  <Route path="/PestOrder/:serviceId" element={<PestOrder />} />
-  <Route path="/CarOrder/:serviceId" element={<CarOrder />} />
-  <Route path="/HandymanOrder/:serviceId" element={<HandymanOrder />} />
-  <Route path="/FurnitureCLeaning/:serviceId" element={<FurnitureCLeaning/>} />
-  <Route path="/DeepOrder/:serviceId" element={<DeepOrder/>} />
-  <Route path="/DeepKitchen/:serviceId" element={<DeepKitchen/>} />
-  <Route path="/WaterCleaning/:serviceId" element={<WaterCleaning/>} />
-  <Route path="/WomenOrder/:serviceId" element={<WomenOrder/>} />
-  <Route path="/CargoOrder/:serviceId" element={<CargoOrder/>} />
-  <Route path="/MenOrder/:serviceId" element={<MenOrder/>} />
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-
- 
-
-  
-
-
-
-          
+          <Route path="/place-order/:serviceId" element={<PlaceOrder />} />
+          <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/FurnitureOrder/:serviceId" element={<FurnitureOrder />} />
+          <Route path="/AcOrder/:serviceId" element={<AcOrder />} />
+          <Route path="/AcRepaireOrder/:serviceId" element={<AcRepaireOrder />} />
+          <Route path="/SpaOrder/:serviceId" element={< SpaOrder />} />
+          <Route path="/SalonOrder/:serviceId" element={< SalonOrder />} />
+          <Route path="/LabOrder/:serviceId" element={<LabOrder />} />
+          <Route path="/PestOrder/:serviceId" element={<PestOrder />} />
+          <Route path="/CarOrder/:serviceId" element={<CarOrder />} />
+          <Route path="/HandymanOrder/:serviceId" element={<HandymanOrder />} />
+          <Route path="/FurnitureCLeaning/:serviceId" element={<FurnitureCLeaning/>} />
+          <Route path="/DeepOrder/:serviceId" element={<DeepOrder/>} />
+          <Route path="/DeepKitchen/:serviceId" element={<DeepKitchen/>} />
+          <Route path="/WaterCleaning/:serviceId" element={<WaterCleaning/>} />
+          <Route path="/WomenOrder/:serviceId" element={<WomenOrder/>} />
+          <Route path="/CargoOrder/:serviceId" element={<CargoOrder/>} />
+          <Route path="/MenOrder/:serviceId" element={<MenOrder/>} />          
         </Routes>
       <Footer/>
     </Router>
