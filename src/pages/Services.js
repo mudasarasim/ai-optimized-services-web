@@ -6,7 +6,7 @@ import image4 from '../assets/Images/Electromechanical Equipment Installation.jp
 import image5 from '../assets/Images/Wallpaper Fixing Works.jpg';
 import image6 from '../assets/Images/pa4.png';
 import image7 from '../assets/Images/Painting Contracting.jpg';
-import image8 from '../assets/Images/ca1.png';
+import image8 from '../assets/Images/ac3.jpg';
 import image9 from '../assets/Images/image9.png';
 import image10 from '../assets/Images/image10.png';
 import image11 from '../assets/Images/h1.png';
@@ -205,7 +205,7 @@ const ServicesHeader = () => {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("img/bg/bg-02.jpg")' }}
+        style={{ backgroundImage: 'url("img/content/bg-05.jpg")' }}
       >
         <div className="container">
           <div className="row">
