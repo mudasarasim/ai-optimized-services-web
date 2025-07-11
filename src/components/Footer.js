@@ -25,10 +25,10 @@ const Footer = () => {
                         <div class="pl-lg-1-6">
                             <h3 class="text-primary h5 mb-1-6">Our Services</h3>
                             <ul class="footer-list">
-                                <li><Link to={'/services'}>House Cleaning</Link></li>
-                                <li><Link to={'/services'}>Glass Cleaning</Link></li>
-                                <li><Link to={'/services'}>Toliet Cleaning</Link></li>
-                                <li><Link to={'/services'}>Office Cleaning</Link></li>
+                                <li><Link to={'/services'}>False Ceiling</Link></li>
+                                <li><Link to={'/services'}>AC Repairs and Installation</Link></li>
+                                <li><Link to={'/services'}>Handyman & Maintenance</Link></li>
+                                <li><Link to={'/services'}>Plumbing & Sanitary Installation </Link></li>
                             </ul>
                         </div>
                     </div>
@@ -36,20 +36,19 @@ const Footer = () => {
                         <h3 class="text-primary h5 mb-1-6">Contact Us</h3>
                         <div class="footer-contact-info">
                             <div class="content">
-                                <address class="text-white">Office No:9, Al Hazm Building, Hor AL Anz, Dubai</address>
+                                <address class="text-white">Office No:9, Al Hazm Building, Al Rashid Road, Dubai</address>
                                 <a href="https://www.google.com/maps/search/?api=1&query=25.281887,55.335413" target="_blank" class="white-hover"><i class="fas fa-angle-right"></i>Get Direction</a>
                             </div>
                             <div class="box">
-                                <h2 style={{fontSize: '22px'}}><span>Get Free Estimate</span> +971 525 434 708 
-                                </h2>
+                                <h2 style={{fontSize: '22px'}}><span>Get Free Estimate</span> +971 52 203 3745 </h2>
                                 <span class="icon"><i class="fas fa-phone"></i></span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 mb-4 mb-xl-0">
                                 <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><a href="tel:+921234567890" class="text-white"><span class="fas fa-phone text-primary mr-2 align-middle"></span> +971 525 434 708</a></li>
-                                    <li><a href="mailto:Info@aioptimizedservices.com" class="text-white"><span class="fas fa-envelope text-primary mr-2 align-middle"></span> Support@aioptimizedservices.com</a></li>
+                                    <li class="mb-2"><a href="tel:+921234567890" class="text-white"><span class="fas fa-phone text-primary mr-2 align-middle"></span> +971 52 203 3745</a></li>
+                                    <li><a href="mailto:Info@aioptimizedservices.com" class="text-white"><span class="fas fa-envelope text-primary mr-2 align-middle"></span> support@aioptimizedservices.com</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-6 text-left text-sm-right">
