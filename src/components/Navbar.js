@@ -74,7 +74,7 @@ const Navbar = () => {
                       <li><Link to="/about">About Us</Link></li>
                       <li><Link to="/services">Services</Link></li>
                       <li><Link to="/contact">Contact Us</Link></li>
-                      {!isLoggedIn ? (
+                      {/* {!isLoggedIn ? (
                         <li><Link to="/login">Login</Link></li>
                       ) : (
                         <li><button className="btn btn-link nav-link" onClick={handleLogout}>Logout</button></li>
@@ -83,7 +83,7 @@ const Navbar = () => {
                         <li><Link to="/signup">Sign Up</Link></li>
                       ) : (
                         <li><button className="btn btn-link nav-link" onClick={handleLogout}></button></li>
-                      )}
+                      )} */}
                     </ul>
                   </div>
 
