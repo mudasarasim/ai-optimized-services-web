@@ -94,9 +94,9 @@ const About = () => {
                             <div class="process-step">
                                 <div class="dot-border">01</div>
                             </div>
-                            <h4 class="h5 mb-3">Account &amp; Check In</h4>
-                            <p>Account ipsum dolor sit amet consectetur adipisicing elit eiusmod tempor incididunt ut labore et dolore.</p>
-                            <a href="#!" class="read-more">read more</a>
+                            <h4 class="h5 mb-3">Choose Category</h4>
+                            <p>Browse our wide range of professional services — from deep cleaning and repairs to beauty and wellness. Pick the one that fits your needs.</p>
+                            {/* <a href="#!" class="read-more">read more</a> */}
                         </div>
                     </div>
                     <div class="col-lg-4 mb-2-5 mb-lg-0">
@@ -104,9 +104,9 @@ const About = () => {
                             <div class="process-step">
                                 <div class="dot-border">02</div>
                             </div>
-                            <h4 class="h5 mb-3">Choose Category</h4>
-                            <p>Category ipsum dolor sit amet consectetur adipisicing elit eiusmod tempor incididunt ut labore et dolore.</p>
-                            <a href="#!" class="read-more">read more</a>
+                            <h4 class="h5 mb-3">Confirm &amp; Booking</h4>
+                            <p>Select your time, share your address, and confirm the details. Our team will take care of the rest and get ready to serve you.</p>
+                            {/* <a href="#!" class="read-more">read more</a> */}
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -115,8 +115,8 @@ const About = () => {
                                 <div class="dot-border last">03</div>
                             </div>
                             <h4 class="h5 mb-3">Get Clean Property</h4>
-                            <p>Property ipsum dolor sit amet consectetur adipisicing elit eiusmod tempor incididunt ut labore et dolore.</p>
-                            <a href="#!" class="read-more">read more</a>
+                            <p>Sit back and relax while our trained professionals transform your space into a fresh, spotless environment.</p>
+                            {/* <a href="#!" class="read-more">read more</a> */}
                         </div>
                     </div>
                 </div>
@@ -134,42 +134,42 @@ const About = () => {
                                 </span>
                             </a>
                         </div>
-                        <h2 class="display-18 display-md-16 display-lg-14 text-white font-weight-700">Get happy with our best service we provide</h2>
+                        <h2 class="display-18 display-md-16 display-lg-14 text-white font-weight-700">We get it right first time.</h2>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="counter-box">
-            <div class="container">
-                <div class="bg-white shadow py-2-5 px-2-5 rounded mb-1-6">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-3 text-center mb-1-9 mb-lg-0">
-                                    <h5 class="countup display-18">6524</h5>
-                                    <p class="mb-0 text-secondary font-weight-500">Workers</p>
-                                </div>
-                                <div class="col-sm-6 col-lg-3 text-center mb-1-9 mb-lg-0">
-                                    <h5 class="countup display-18">1462</h5>
-                                    <p class="mb-0 text-secondary font-weight-500">Equipment</p>
-                                </div>
-                                <div class="col-sm-6 col-lg-3 text-center mb-1-6 mb-sm-0">
-                                    <h5 class="countup display-18">124</h5>
-                                    <p class="mb-0 text-secondary font-weight-500">World Wide</p>
-                                </div>
-                                <div class="col-sm-6 col-lg-3 text-center">
-                                    <h5 class="countup display-18">42</h5>
-                                    <p class="mb-0 text-secondary font-weight-500">Won Award</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container">
+          <div class="bg-white shadow py-2-5 px-2-5 rounded mb-1-6">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="row justify-content-center text-center">
+                  <div class="col-sm-6 col-lg-3 text-center mb-1-9 mb-lg-0">
+                    <h5 class="countup display-18">100+</h5>
+                    <p class="mb-0 text-secondary font-weight-500">Workers</p>
+                  </div>
+                  <div class="col-sm-6 col-lg-3 text-center mb-1-9 mb-lg-0">
+                    <h5 class="countup display-18">100+</h5>
+                    <p class="mb-0 text-secondary font-weight-500">Equipment</p>
+                  </div>
+                  <div class="col-sm-6 col-lg-3 text-center mb-1-6 mb-sm-0">
+                    <h5 class="countup display-18">124</h5>
+                    <p class="mb-0 text-secondary font-weight-500">World Wide</p>
+                  </div>
+                  {/* <div class="col-sm-6 col-lg-3 text-center">
+                    <h5 class="countup display-18">42</h5>
+                    <p class="mb-0 text-secondary font-weight-500">Won Award</p>
+                  </div> */}
                 </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>    
 
-        <section>
+        {/* <section>
             <div class="container">
                 <div class="text-center mb-5">
                     <h5 class="text-primary h6">Our Team</h5>
@@ -236,7 +236,8 @@ const About = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section> */}
+        
          <div className="whatsapp-button" onClick={handleWhatsAppSend}>
               <FontAwesomeIcon icon={faWhatsapp} />
         </div>
