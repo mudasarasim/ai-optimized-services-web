@@ -71,9 +71,9 @@ const Home = () => {
             <div className="col-12">
               <div className="row align-items-center mt-10">
                 <div className="col-lg-12 mb-5 mb-lg-0 text-center">
-                  <h6 className="text-primary">Get amazing cleaning experience</h6>
+                  <h6 className="text-primary">Get amazing experience</h6>
                   <h2 className="text-white font-weight-700 text-shadow" style={{ fontSize: '35px' }}>
-                    From cleaning to plumbing, AC to beauty services - your family will thank you for!
+                    Expert Tech, Reliable Maintenance, Styling Salon, Secure Cargo focus on solving problem.
                   </h2>
                 </div>
 
@@ -172,13 +172,14 @@ const Home = () => {
                   ></div>
                   <div class="card-body">
                     <i class="fas fa-border-style mb-4 display-14"></i>
-                    <h3 class="h5 mb-4"><a href="#!">Wallpaper Fixing Works</a></h3>
-                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <h3 class="h5 mb-4"><a href="#!">False Celing</a></h3>
+                    <p>Transform your interiors with our expert false ceiling and light partition installation services.</p>
                     <a href="#!" class="read-more">read more</a>
                   </div>
                 </div>
               </Link>
             </div>
+            
             <div class="col-md-6 col-lg-4 mb-1-9">
               <Link to={'/services'}>
                 <div class="card card-style3">
@@ -191,13 +192,14 @@ const Home = () => {
                   }}></div>
                   <div class="card-body">
                     <i class="fas fa-fan mb-4 display-14"></i>
-                    <h3 class="h5 mb-4"><a href="#!">A/C Installation & Maintenance</a></h3>
-                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <h3 class="h5 mb-4"><a href="#!">Electromechanical Equipment Installation and Maintenance</a></h3>
+                    <p>We offer expert installation and maintenance of mechanical and electrical systems, ensuring optimal performance and minimal downtime across all project types.</p>
                     <a href="#!" class="read-more">read more</a>
                   </div>
                 </div>
               </Link>
             </div>
+
             <div class="col-md-6 col-lg-4 mb-1-9 mb-lg-0">
               <Link to={'/services'}>
                 <div class="card card-style3">
@@ -211,13 +213,14 @@ const Home = () => {
                     }}></div>
                   <div class="card-body">
                     <i class="fas fa-home mb-4 display-14"></i>
-                    <h3 class="h5 mb-4"><a href="#!">Home Cleaning</a></h3>
-                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <h3 class="h5 mb-4"><a href="#!">Wallpaper Fixing Works</a></h3>
+                    <p>We offer a wide selection of high-quality wallpapers, ensuring you find the perfect design to enhance your space</p>
                     <a href="#!" class="read-more">read more</a>
                   </div>
                 </div>
               </Link>
             </div>
+
             <div class="col-md-6 col-lg-4 mb-1-9 mb-md-0">
               <Link to={'/services'}>
                 <div class="card card-style3">
@@ -231,14 +234,15 @@ const Home = () => {
                     }}
                   ></div>
                   <div class="card-body">
-                    <i class="fas fa-car mb-4 display-14"></i>
-                    <h3 class="h5 mb-4"><a href="#!">Car Wash</a></h3>
-                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <i class="fas fa-hand-sparkles mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Plaster Work</a></h3>
+                    <p>Our skilled team ensures seamless plastering that provides a smooth finish, improves durability.</p>
                     <a href="#!" class="read-more">read more</a>
                   </div>
                 </div>
               </Link>
             </div>
+
             <div class="col-md-6 col-lg-4">
               <Link to={'/services'}>
                 <div class="card card-style3">
@@ -252,9 +256,9 @@ const Home = () => {
                     }}
                   ></div>
                   <div class="card-body">
-                    <i class="fas fa-scissors mb-4 display-14"></i>
-                    <h3 class="h5 mb-4"><a href="#!">Men’s Salon</a></h3>
-                    <p>We are already high standards to have you see us as the best in the industry.</p>
+                    <i class="fas fa-flask-vial mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Painting Contracting </a></h3>
+                    <p>Transforming spaces with color and craftmanship.</p>
                     <a href="#!" class="read-more">read more</a>
                   </div>
                 </div>
@@ -275,9 +279,9 @@ const Home = () => {
                     }}
                   ></div>
                   <div class="card-body">
-                    <i class="fas fa-scissors mb-4 display-14"></i>
-                    <h3 class="h5 mb-4"><a href="#!">Women’s Salon Beautiful</a></h3>
-                    <p>Visit us at Beauty Salon and immerse your self inside the world of refined beauty offerings.</p>
+                    <i class="fas fa-spaghetti-monster-flying mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">AC Repairs and Installation</a></h3>
+                    <p>Whether it’s a weird sound or a total breakdown, our certified techs diagnose and fix AC issues fast—or install a new unit if needed.</p>
                     <a href="#!" class="read-more">read more</a>
                   </div>
                 </div>
@@ -298,9 +302,9 @@ const Home = () => {
                     }}
                   ></div>
                   <div class="card-body">
-                    <i class="fa-solid fa-water mb-4 display-14"></i>
-                    <h3 class="h5 mb-4"><a href="#!">PRECISION IN CRAFTSMANSHIP</a></h3>
-                    <p>Professional inspection and assessment of your underground tank.</p>
+                    <i class="fa-solid fa-car-side mb-4 display-14"></i>
+                    <h3 class="h5 mb-4"><a href="#!">Mobile Car Wash</a></h3>
+                    <p>Premium car washing and detailing at your doorstep.</p>
                     <a href="#!" class="read-more">read more</a>
                   </div>
                 </div>
@@ -341,7 +345,7 @@ const Home = () => {
         <div class="container" style={{ marginTop: '-40px' }}>
           <div class="text-center mb-2-8">
             <h2 class="display-18 display-md-16 display-lg-14 font-weight-700">Why choose <strong class="text-primary font-weight-700">Us</strong></h2>
-            <span>The trusted source for complete cleaning, maintenance & lifestyle services in the UAE.</span>
+            <span>The trusted source for complete maintenance & lifestyle services in the UAE.</span>
           </div>
           <div class="row align-items-center">
             <div class="col-sm-6 col-lg-4 mb-2-9 mb-sm-0">
@@ -355,7 +359,7 @@ const Home = () => {
                 </div>
                 <div class="text-center text-sm-right">
                   <div class="mb-4">
-                    <img src="img/ac3.png" alt="..." class="rounded-circle" />
+                    <img src="img/ac3.jpg" alt="..." class="rounded-circle" style={{width: '80px', height:'80px'}}/>
                   </div>
                   <h4 class="h5">A/C Installation & Cleaning</h4>
                   <p class="display-30 mb-0">Cool, clean air starts here! Installation, servicing, and deep cleaning — all in one place.</p>
@@ -401,33 +405,34 @@ const Home = () => {
                   </span>
                 </a>
               </div>
-              <h2 class="display-18 display-md-16 display-lg-14 text-white font-weight-700">Get happy with our best service we provide</h2>
+              <h2 class="display-18 display-md-16 display-lg-14 text-white font-weight-700">We get it right first time.</h2>
             </div>
           </div>
         </div>
       </section>
+
       <section class="counter-box">
         <div class="container">
           <div class="bg-white shadow py-2-5 px-2-5 rounded mb-1-6">
             <div class="row justify-content-center">
               <div class="col-lg-10">
-                <div class="row">
+                <div class="row justify-content-center text-center">
                   <div class="col-sm-6 col-lg-3 text-center mb-1-9 mb-lg-0">
-                    <h5 class="countup display-18">6524</h5>
+                    <h5 class="countup display-18">100+</h5>
                     <p class="mb-0 text-secondary font-weight-500">Workers</p>
                   </div>
                   <div class="col-sm-6 col-lg-3 text-center mb-1-9 mb-lg-0">
-                    <h5 class="countup display-18">1462</h5>
+                    <h5 class="countup display-18">100+</h5>
                     <p class="mb-0 text-secondary font-weight-500">Equipment</p>
                   </div>
                   <div class="col-sm-6 col-lg-3 text-center mb-1-6 mb-sm-0">
                     <h5 class="countup display-18">124</h5>
                     <p class="mb-0 text-secondary font-weight-500">World Wide</p>
                   </div>
-                  <div class="col-sm-6 col-lg-3 text-center">
+                  {/* <div class="col-sm-6 col-lg-3 text-center">
                     <h5 class="countup display-18">42</h5>
                     <p class="mb-0 text-secondary font-weight-500">Won Award</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -493,11 +498,9 @@ const Home = () => {
             <div class="col-lg-6">
               <div class="pl-lg-1-9">
                 <h2 class="display-18 display-md-16 display-lg-14 mb-1-6 font-weight-700">Manage all to-dos with a  <strong class="text-primary font-weight-700">single tap!</strong></h2>
-                <p class="mb-2-0 display-29 display-md-28">    Schedule and manage appointments effortlessly, explore professional profiles and reviews,
-                  access exclusive offers, and enjoy much more—all in one seamless platform made for your convenience!
+                <p class="mb-2-0 display-29 display-md-28">Schedule and manage appointments effortlessly, explore professional profiles and reviews, access exclusive offers, and enjoy much more—all in one seamless platform made for your convenience!
                 </p>
                 <a className='butn'>Coming Soon</a>
-
               </div>
             </div>
             <div class="col-lg-6 mb-2-9 mb-lg-0">
