@@ -8,7 +8,7 @@ const Contact = () => {
   const [message, setMessage] = useState('');
 
   const handleWhatsAppSend = () => {
-    const phoneNumber = "971526353298"; // AIO WhatsApp Number (without '+')
+    const phoneNumber = "+971522033745"; // AIO WhatsApp Number (without '+')
     const encodedMsg = encodeURIComponent(message || "Hi AIO SERVICES, I need some help.");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
     window.open(whatsappUrl, "_blank");
@@ -131,7 +131,7 @@ const Contact = () => {
                                     <i class="fas fa-map-marker text-primary mr-1-6 display-20"></i>
                                     <div class="media-body">
                                         <h3 class="h5 text-secondary">Location</h3>
-                                        <address class="text-secondary mb-0">Office No:9, Al Hazm Building, Hor AL Anz, Dubai</address>
+                                        <address class="text-secondary mb-0">Office No:9, Al Hazm Building, Al Rashid Road, Dubai</address>
                                     </div>
                                 </div>
                             </div>
@@ -141,9 +141,8 @@ const Contact = () => {
                                     <div class="media-body">
                                         <h3 class="h5 text-secondary">Call Us</h3>
                                         <ul class="list-unstyled mb-0">
-                                            <li><a href="tel:+1234567890" class="text-secondary">+971 525 434 708</a></li>
+                                            <li><a href="tel:+1234567890" class="text-secondary">+971 52 203 3745</a></li>
                                         </ul>
-
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +152,7 @@ const Contact = () => {
                                     <div class="media-body">
                                         <h3 class="h5 text-secondary">Mail Us</h3>
                                         <ul class="list-unstyled mb-0 word-break">
-                                            <li><a href="mailto:email@youradress.com" class="text-secondary">Info@aioptimizedservices.com</a></li>
+                                            <li><a href="mailto:email@youradress.com" class="text-secondary">info@aioptimizedservices.com</a></li>
                                         </ul>
 
                                     </div>
