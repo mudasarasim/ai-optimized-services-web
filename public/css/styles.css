@@ -1337,7 +1337,7 @@ a.text-secondary:active {
     right: 100%;
     z-index: 9;
     transition: .8s;
-    background: rgba(0, 186, 238, 0.82)
+    background: rgba(5, 17, 97, 0.82)
 }
 
 .card-style3:hover:before {
