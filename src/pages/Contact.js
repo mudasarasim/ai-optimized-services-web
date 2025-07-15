@@ -8,7 +8,7 @@ const Contact = () => {
   const [message, setMessage] = useState('');
 
   const handleWhatsAppSend = () => {
-    const phoneNumber = "+971522033745"; // AIO WhatsApp Number (without '+')
+    const phoneNumber = "971522033745"; // AIO WhatsApp Number (without '+')
     const encodedMsg = encodeURIComponent(message || "Hi AIO SERVICES, I need some help.");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
     window.open(whatsappUrl, "_blank");
