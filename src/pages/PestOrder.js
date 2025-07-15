@@ -6,6 +6,7 @@ import image3 from '../assets/Images/ca1.png'; // Portfolio 1
 import image4 from '../assets/Images/ca5.png'; // Portfolio 2
 import image5 from '../assets/Images/ca4.png'; // Portfolio 3
 import image6 from '../assets/Images/ca3.png'; // Portfolio 4
+import image7 from '../assets/Images/ac3.jpg';
 
 
 const benefits = [
@@ -124,7 +125,7 @@ const ServiceDetail = () => {
     </button>
           </div>
           <div className="col-lg-6">
-            <img src={image2} alt="Plumbing Installation" className="img-fluid rounded" />
+            <img src={image7} style={{width:"100%"}} alt="Plumbing Installation" className="img-fluid rounded" />
           </div>
         </div>
       </div>
@@ -156,7 +157,7 @@ const ServiceDetail = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 mb-4 mb-lg-0">
-              <img src={image3} alt="Installation Process" className="img-fluid rounded" />
+              <img src={image7} style={{width:'100%'}} alt="Installation Process" className="img-fluid rounded" />
             </div>
             <div className="col-lg-6">
               <p className="text-uppercase text-warning fw-bold">WHAT IT INVOLVES</p>
