@@ -1,105 +1,163 @@
-import React, { useState } from 'react';
-import './ServiceDetail.css';
-import { useNavigate } from 'react-router-dom';
-import image6 from '../assets/Images/Plumbing & Sanitary Installation.jpg';
-import image2 from '../assets/Images/services3.png';
-import image3 from '../assets/Images/services3.png'; // Portfolio 1
-import image4 from '../assets/Images/services4.png'; // Portfolio 2
-import image5 from '../assets/Images/services5.png'; // Portfolio 3
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import image1 from '../assets/Images/s1.png';
+import image2 from '../assets/Images/s2.png';
+import image3 from '../assets/Images/s3.png';
+import image4 from '../assets/Images/s5.png';
+import image5 from '../assets/Images/s6.png';
+import image6 from '../assets/Images/m1.png';
 
-const benefits = [
-  {
-    icon: 'fa-solid fa-faucet-drip',
-    title: 'Effective Plumbing Solutions',
-    desc: 'We provide reliable plumbing systems that prevent leaks and ensure consistent water flow for your home or business.',
-  },
-  {
-    icon: 'fa-solid fa-wrench',
-    title: 'Quality Installations',
-    desc: 'Our expert installations ensure durability and long-term performance, minimizing the need for frequent repairs.',
-  },
-  {
-    icon: 'fa-solid fa-hand-holding-medical',
-    title: 'Enhanced Hygiene',
-    desc: 'Our sanitary installations promote cleanliness and health, ensuring safe water supply and waste disposal.',
-  },
-  {
-    icon: 'fa-solid fa-drafting-compass',
-    title: 'Customized Designs',
-    desc: 'We tailor our plumbing solutions to meet the specific needs of your space, ensuring optimal performance and satisfaction.',
-  },
-  {
-    icon: 'fa-solid fa-stopwatch',
-    title: 'Timely Maintenance Support',
-    desc: 'Regular maintenance services help to keep your plumbing systems running smoothly, preventing unexpected breakdowns.',
-  },
-  {
-    icon: 'fa-solid fa-file-contract',
-    title: 'Compliance with Standards',
-    desc: 'All our installations adhere to local building codes and regulations, ensuring safety and reliability.',
-  }
-];
+import image7 from '../assets/Images/m2.png';
+import image8 from '../assets/Images/m3.png';
+import image9 from '../assets/Images/c1.png';
+import image10 from '../assets/Images/c2.png';
+import image11 from '../assets/Images/c3.png';
+import image12 from '../assets/Images/c4.png';
 
-const processSteps = [
-  {
-    title: 'Consultation and Assessment',
-    desc: 'We evaluate your space to identify specific plumbing and sanitary needs, ensuring all requirements are met.',
-  },
-  {
-    title: 'Pipe and Fixture Installation',
-    desc: 'Professional installation of pipes, fixtures, and fittings to ensure a reliable and efficient plumbing system.',
-  },
-  {
-    title: 'System Design and Planning',
-    desc: 'Creating a customized plumbing plan tailored to your space’s layout and requirements, optimizing functionality and efficiency.',
-  },
-  {
-    title: 'Regular Maintenance and Support',
-    desc: 'Providing ongoing maintenance services to keep plumbing systems running efficiently and address any issues that arise.',
-  },
-  {
-    title: 'Testing and Calibration',
-    desc: 'Thoroughly testing installed systems to ensure optimal performance and making necessary adjustments as needed.',
-  },
-  {
-    title: 'Drainage and Waste Setup',
-    desc: 'Setting up drainage systems to ensure safe waste disposal and prevent blockages.',
-  }
-];
+import image13 from '../assets/Images/c5.png';
+import image14 from '../assets/Images/c6.png';
+import image15 from '../assets/Images/c7.png';
+import image16 from '../assets/Images/c8.png';
+import image17 from '../assets/Images/co1.png';
+import image18 from '../assets/Images/co2.png';
+import image19 from '../assets/Images/co3.png';
+import image20 from '../assets/Images/n1.png';
+import image21 from '../assets/Images/n2.png';
+import image22 from '../assets/Images/n3.png';
 
-const ServiceDetail = () => {
+import axios from "axios";
+import './PlaceOrder.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTriangleExclamation,
+  faLocationDot,
+  faClock,
+  faUserGroup,
+  faPlus,
+  faMoneyBillWave,
+  faCircleCheck,
+  faCircleXmark
+} from '@fortawesome/free-solid-svg-icons';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+library.add(
+  faTriangleExclamation,
+  faLocationDot,
+  faClock,
+  faUserGroup,
+  faPlus,
+  faMoneyBillWave,
+  faCircleCheck,
+  faCircleXmark
+);
+
+function PlaceOrder() {
+  const { serviceId } = useParams();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    service: 'Air-Conditioning, Ventilation & Air Filtration Systems',
-    comments: '',
-  });
+  const [serviceName] = useState("Carpet & Sofa Cleaning");
+  const [professionals, setProfessionals] = useState(1);
+  const [hours, setHours] = useState(1);
+  const [material, setMaterial] = useState(false);
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [addons, setAddons] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const addonOptions = [
+ { id: 1, name: '3 Seater Sofa (38% Price Drop)', price: 116, image: image1 },
+    { id: 2, name: '3 Seater L-Shape Sofa (30% Price Drop)', price: 139, image: image2 },
+    { id: 3, name: '3 Seater Sofa Bed  ', price: 249, image: image3 },
+    { id: 4, name: '4 Seater Sofa', price: 229, image: image4 },
+    { id: 5, name: 'Single Seat', price: 69, image: image5 },
+
+    { id: 6, name: 'King Mattress Cleaning (10% Price Drop) ', price: 199, image: image6 },
+    { id: 7, name: 'Queen Mattress (28% Price Drop)', price: 159, image: image7 },
+    { id: 8, name: 'Single Mattress', price: 149, image: image8},
+    
+    { id: 9, name: 'Small Carpet (150 x 300 cm)', price: 105, image: image9 },
+    { id: 10, name: 'Medium Carpet (180 x 275 cm)', price: 149, image: image10 },
+    { id: 11, name: 'Wall to Wall (Measuring +...', price: 149, image: image11 },
+    { id: 12, name: 'X-Large (up to 1600 cm)', price: 300, image: image12 },
+
+    { id: 13, name: 'Small Curtain Cleaning (300 x 300 cm)', price: 100, image:image13 },
+    { id: 14, name: 'Medium (430 x 300 cm)', price: 155, image: image14 },
+    { id: 15, name: 'Large (830 x 300 cm)', price: 315, image: image15 },
+    { id: 16, name: 'Custom Size', price: 149, image: image16 },
+
+    { id: 17, name: '3 Seater Sofa & Small Carpet', price: 159, image: image17 },
+    { id: 18, name: '3 Seater Sofa & Queen Size Mattress', price: 246, image: image18 },
+    { id: 19, name: 'Sofa, Dining Chairs & Carpet', price: 599, image: image19 },
+    
+    { id: 20, name: '1 Seat Nano Coating', price: 189, image: image20 },
+    { id: 21, name: '3 Seat Nano Coating', price: 579, image: image21 },
+    { id: 22, name: '5 Seat Nano Coating', price: 959, image: image22 }
+  ];
+
+  const basePrice = 55;
+  const addonsTotal = addons.reduce((sum, a) => sum + a.price, 0);
+  const materialCost = material ? 10 : 0;
+  const total = (hours * professionals * basePrice) + addonsTotal + materialCost;
+
+  useEffect(() => {
+    const id = localStorage.getItem("userId");
+    setUserId(id);
+  }, []);
+
+  const handleAddonToggle = (addon) => {
+    const exists = addons.some(a => a.id === addon.id);
+    if (exists) {
+      setAddons(addons.filter(a => a.id !== addon.id));
+    } else {
+      setAddons([...addons, addon]);
+    }
+  };
+
+  const confirmAndPlaceOrder = async () => {
+    const payload = {
+      user_id: userId,
+      service_id: serviceId,
+      service_name: serviceName,
+      address,
+      professionals,
+      hours,
+      material,
+      addons: JSON.stringify(addons),
+      total,
+      description,
+    };
+
+    try {
+      await axios.post("http://localhost:5001/api/orders", payload);
+
+      const email = "aioptimizedservices@gmail.com";
+      const subject = "New Service Order Request";
+      const message = `\n\n📢 *New Service Order*:\n\n👤 User ID: ${userId}\n📍 Address: ${address}\n🔧 Service: ${serviceName}\n👥 Professionals: ${professionals}\n⏱️ Hours: ${hours}\n🧼 Materials: ${material ? 'Yes (+10 AED)' : 'No'}\n➕ Addons: ${addons.map(a => a.name).join(', ') || 'None'}\n📅 Date: ${selectedDate}\n📝 Notes: ${description}\n💰 Total: AED ${total.toFixed(2)}`;
+      const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+      window.location.href = mailtoUrl;
+
+      alert("✅ Order placed successfully!");
+      navigate("/");
+    } catch (err) {
+      console.error("❌ Order failed:", err.response?.data || err.message);
+      alert("❌ Failed to place order");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { firstName, lastName, email, phone, service, comments } = formData;
-    const subject = encodeURIComponent("Service Inquiry from Website");
-    const body = encodeURIComponent(`
-      Name: ${firstName} ${lastName}
-      Email: ${email}
-      Phone: ${phone}
-      Service: ${service}
-      Comments: ${comments}
-    `);
-
-    window.location.href = `mailto:aioptimizedservices@gmail.com?subject=${subject}&body=${body}`;
+    if (!userId || !serviceId || !serviceName || !description || !address) {
+      alert("❌ Missing required fields");
+      return;
+    }
+    setShowModal(true);
   };
-
   return (
     <>
-      {/* Page Banner */}
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
@@ -108,173 +166,114 @@ const ServiceDetail = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1>Plumbing And Sanitary Installation</h1>
+              <h1>Carpet & Sofa Cleaning</h1>
             </div>
             <div className="col-md-12">
               <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="#!">Services/PLUMBING MADE SIMPLE</a></li>
+                <li><a href="#!">Carpet & Sofa Cleaning</a></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Section 1: Intro */}
-      <div className="container py-5">
-        <div className="row align-items-center">
-          <div className="col-lg-6">
-            <h1 className="fw-bold display-4 mb-4">PLUMBING MADE SIMPLE</h1>
-            <p className="mb-4">
-              At Ai Optimized, we provide expert plumbing and sanitary installation services tailored to your needs.
-              Our skilled team ensures efficient systems that promote hygiene and functionality in your residential or commercial space.
-            </p>
-           <button
-      className="btn btn-dark"
-      onClick={() => navigate('/contact')}
-    >
-      Contact Today <i className="bi bi-arrow-up-right"></i>
-    </button>
+    <div className="booking-container row">
+      <div className="col-md-7">
+        <h3>Carpet & Sofa Cleaning</h3>
+        <form>
+          <p>How many hours do you need your professional to stay?</p>
+          <div className="option-group">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map(h => (
+              <button key={h} type="button" className={hours === h ? 'selected' : ''} onClick={() => setHours(h)}>{h}</button>
+            ))}
           </div>
-          <div className="col-lg-6">
-            <img src={image6} alt="Plumbing Installation" className="img-fluid rounded" />
+
+          <p>How many professionals do you need?</p>
+          <div className="option-group">
+            {[1, 2, 3, 4].map(p => (
+              <button key={p} type="button" className={professionals === p ? 'selected' : ''} onClick={() => setProfessionals(p)}>{p}</button>
+            ))}
           </div>
-        </div>
-      </div>
 
-      {/* Section 2: Benefits */}
-      <div className="container py-5">
-        <div className="text-center mb-5">
-          <p className="text-uppercase text-warning fw-bold mb-2">ELEVATE YOUR SPACE</p>
-          <h2 className="fw-bold">PLUMBING & SANITARY INSTALLATION SERVICES</h2>
-          <p className="text-danger fw-semibold">ENSURING FUNCTIONALITY AND EFFICIENCY</p>
-          <p className="text-muted">
-            At Jusoor Alnokhba, we specialize in comprehensive plumbing and sanitary installation services.
-            Our experienced team guarantees efficient systems that promote hygiene and functionality in both residential and commercial environments.
-          </p>
-        </div>
+          <p>Need cleaning materials?</p>
+          <div className="option-group">
+            <button type="button" className={!material ? 'selected' : ''} onClick={() => setMaterial(false)}>No, I have them</button>
+            <button type="button" className={material ? 'selected' : ''} onClick={() => setMaterial(true)}>Yes, please</button>
+          </div>
 
-        <h4 className="fw-bold mb-4">Benefits of Our Plumbing & Sanitary Installation Services</h4>
+          <p>Where do you want the service?</p>
+          <input type="text" placeholder="Enter your address" value={address} onChange={(e) => setAddress(e.target.value)} required />
 
-        <div className="row g-4">
-          {benefits.map((benefit, index) => (
-            <div key={index} className="col-md-6 col-lg-4">
-              <div className="p-4 shadow-sm border rounded bg-white h-100">
-                <i className={`${benefit.icon} fa-2x text-primary mb-3`}></i>
-                <h6 className="fw-bold">{benefit.title}</h6>
-                <p className="mb-0 text-muted small">{benefit.desc}</p>
+          <p>Select the service date:</p>
+          <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} required />
+
+          <p>Any instructions or special requirements?</p>
+          <textarea placeholder="e.g., Key under mat, etc." value={description} onChange={(e) => setDescription(e.target.value)} required />
+
+          <h5>People also added</h5>
+          <div className="addon-cards">
+            {addonOptions.map(addon => (
+              <div key={addon.id} className="addon-card">
+                <img src={addon.image} alt={addon.name} className="addon-image" />
+                <h6>{addon.name}</h6>
+                <p>AED {addon.price}</p>
+                <button type="button" onClick={() => handleAddonToggle(addon)}>
+                  {addons.some(a => a.id === addon.id) ? 'Remove' : 'Add +'}
+                </button>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Section 3: Installation and Maintenance Steps */}
-      <div className="container-fluid bg-dark text-white py-5">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 mb-4 mb-lg-0">
-              <img src={image2} alt="Installation Process" className="img-fluid rounded" />
-            </div>
-            <div className="col-lg-6">
-              <p className="text-uppercase text-warning fw-bold">WHAT IT INVOLVES</p>
-              <h2 className="fw-bold text-white">INSTALLATION AND MAINTENANCE STEPS</h2>
-              <p className="text-warning fw-semibold">SERVICE PROCESS OVERVIEW</p>
-              <div className="row">
-                {processSteps.map((step, index) => (
-                  <div className="col-sm-6 mb-4" key={index}>
-                    <h6 className="fw-bold text-white">{step.title}</h6>
-                    <p className="small text-white  mb-0">{step.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Section 4: Portfolio Gallery */}
-      <div className="container py-5">
-        <p className="text-uppercase text-warning fw-bold">PAST WORK</p>
-        <h2 className="fw-bold">OUR PORTFOLIO</h2>
-        <p className="text-danger fw-semibold mb-4">GALLERY</p>
-        <div className="row g-4">
-          <div className="col-md-4">
-            <img src={image3} alt="Portfolio 1" className="img-fluid rounded shadow-sm" />
-          </div>
-          <div className="col-md-4">
-            <img src={image4} alt="Portfolio 2" className="img-fluid rounded shadow-sm" />
-          </div>
-          <div className="col-md-4">
-            <img src={image5} alt="Portfolio 3" className="img-fluid rounded shadow-sm" />
-          </div>
-        </div>
-      </div>
-
-      {/* Section 5: Contact Form (mailto) */}
-      <div className="container py-5">
-        <p className="text-uppercase text-warning fw-bold">GET IN TOUCH</p>
-        <h2 className="fw-bold">FILL THE FORM BELOW</h2>
-        <p className="text-danger fw-semibold mb-4">YOUR VISION, OUR CRAFT</p>
-        <form onSubmit={handleSubmit}>
-          <div className="row g-3">
-            <div className="col-md-6">
-              <label className="form-label">First Name</label>
-              <input type="text" name="firstName" className="form-control" required onChange={handleChange} />
-            </div>
-            <div className="col-md-6">
-              <label className="form-label">Last Name</label>
-              <input type="text" name="lastName" className="form-control" required onChange={handleChange} />
-            </div>
-            <div className="col-md-6">
-              <label className="form-label">Email</label>
-              <input type="email" name="email" className="form-control" required onChange={handleChange} />
-            </div>
-            <div className="col-md-6">
-              <label className="form-label">Phone Number</label>
-              <input type="tel" name="phone" className="form-control" required onChange={handleChange} />
-            </div>
-            <div className="col-12">
-              <label className="form-label">Please Choose Service</label>
-              <select name="service" className="form-select" onChange={handleChange}>
-                <option>Air-Conditioning, Ventilation & Air Filtration Systems</option>
-                <option>Plumbing & Sanitary Installation</option>
-                <option>Electrical Wiring & Panel Installations</option>
-                <option>False Ceiling</option>
-                <option>Electromechanical Equipment Installation and Maintenance</option>
-                <option>Wallpaper Fixing Works</option>
-                <option>Plaster Works</option>
-                <option>Painting Contracting</option>
-                <option>A/C Installation & Maintenance</option>
-                <option>A/C Cleaning</option>
-                <option>Handyman & Maintenance</option>
-                <option>Home Cleaning</option>
-                <option>Furniture Cleaning</option>
-                <option>Home Deep Cleaning</option>
-                <option>Deep Clean Kitchen & Bathroom-</option>
-                <option>Water Tank Cleaning</option>
-                <option>Window Cleaning</option>
-                <option>Car Wash</option>
-                <option>Men's Salon</option>
-                <option>Women’s Salon</option>
-                <option>Makeup</option>
-                <option>Cargo Services </option>
-
-
-              </select>
-            </div>
-            <div className="col-12">
-              <label className="form-label">Additional Comments</label>
-              <textarea name="comments" className="form-control" rows="4" onChange={handleChange}></textarea>
-            </div>
-            <div className="col-12">
-              <button type="submit" className="btn btn-primary w-100">Submit</button>
-            </div>
+            ))}
           </div>
         </form>
       </div>
+
+      <div className="col-md-5">
+        <div className="summary-box">
+          <h5>Booking Details</h5>
+          <p><strong>Address:</strong> {address}</p>
+          <p><strong>Service:</strong> {serviceName}</p>
+          <p><strong>Duration:</strong> {hours} {hours > 1 ? 'hours' : 'hour'}</p>
+          <p><strong>Professionals:</strong> {professionals}</p>
+          <p><strong>Material:</strong> {material ? 'Yes (+10 AED)' : 'No (0 AED)'}</p>
+          <p><strong>Date:</strong> {selectedDate}</p>
+        </div>
+        <div className="summary-box">
+          <h5>Payment Summary</h5>
+          <p><strong>Total:</strong> AED {total.toFixed(2)}</p>
+        </div>
+        <div className="text-center mt-4 mb-10">
+          <button onClick={handleSubmit} className="next-btn" disabled={loading}>
+            {loading ? "Placing Order..." : "Place Order"}
+          </button>
+        </div>
+      </div>
+
+      {showModal && (
+        <div className="modal-overlay">
+  <div className="modal-box">
+    <h4><FontAwesomeIcon icon="triangle-exclamation" className="text-warning me-2" /> Confirm Your Booking</h4>
+    <p><strong><FontAwesomeIcon icon="location-dot" className="me-2" /> Address:</strong> {address}</p>
+    <p><strong><FontAwesomeIcon icon="clock" className="me-2" /> Hours:</strong> {hours}</p>
+    <p><strong><FontAwesomeIcon icon="user-group" className="me-2" /> Professionals:</strong> {professionals}</p>
+    <p><strong><FontAwesomeIcon icon="plus" className="me-2" /> Addons:</strong> {addons.map(a => a.name).join(', ') || 'None'}</p>
+    <p><strong><FontAwesomeIcon icon="money-bill-wave" className="me-2" /> Total:</strong> AED {total.toFixed(2)}</p>
+    <div className="modal-actions">
+      <button className="confirm-btn" onClick={async () => {
+        setShowModal(false);
+        setLoading(true);
+        await confirmAndPlaceOrder();
+      }}>
+        <FontAwesomeIcon icon="circle-check" className="me-2" /> Confirm
+      </button>
+      <button className="cancel-btn" onClick={() => setShowModal(false)}>
+        <FontAwesomeIcon icon="circle-xmark" className="me-2" /> Cancel
+      </button>
+    </div>
+  </div>
+</div>
+      )}
+    </div>
     </>
   );
-};
+}
 
-export default ServiceDetail;
+export default PlaceOrder;

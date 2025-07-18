@@ -52,7 +52,7 @@ const ServicesHeader = () => {
 
   const routeMap = {
     'Home Cleaning': '/place-order/:serviceId',
-    'Plumbing & Sanitary Installation': '/FurnitureOrder/:serviceId',
+    'Plumbing & Sanitary Installation': '/PlumbingOrder/:serviceId',
     'False Ceiling': '/AcOrder/:serviceId',
     'Electromechanical Equipment Installation and Maintenance': '/AcRepaireOrder/:serviceId',
     "Wallpaper Fixing Works": '/SalonOrder/:serviceId',

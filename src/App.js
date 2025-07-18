@@ -28,6 +28,7 @@ import WaterCleaning from "./pages/WaterCleaning";
 import WomenOrder from "./pages/WomenOrder";
 import CargoOrder from "./pages/CargoOrder";
 import MenOrder from "./pages/MenOrder";
+import PlumbingOrder from "./pages/PlumbingOrder";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/place-order/:serviceId" element={<PlaceOrder />} />
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/FurnitureOrder/:serviceId" element={<FurnitureOrder />} />
+          <Route path="/PlumbingOrder/:serviceId" element={<PlumbingOrder />} />
           <Route path="/AcOrder/:serviceId" element={<AcOrder />} />
           <Route path="/AcRepaireOrder/:serviceId" element={<AcRepaireOrder />} />
           <Route path="/SpaOrder/:serviceId" element={< SpaOrder />} />
