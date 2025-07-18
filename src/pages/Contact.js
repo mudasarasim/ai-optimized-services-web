@@ -40,7 +40,7 @@ const Contact = () => {
             <div class="container">
                 <div class="text-center mb-5">
                     <h5 class="text-primary h6">Contact</h5>
-                    <h2 class="display-20 display-md-18 display-lg-16">Get in touch with us!</h2>
+                    <h2 class="display-20 display-md-18 display-lg-16">Get in touch!</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 mb-2-6 mb-lg-0">
