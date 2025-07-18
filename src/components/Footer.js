@@ -15,20 +15,20 @@ const Footer = () => {
                         </div>
                         <p class="display-30 text-white mb-1-6">Different kinds and sizes of edifices experiences on cleaning region with effective undertaking on going.</p>
                         <ul class="footer-social-icon">
-                            <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61577901052283" target='_blank'><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/aioptimizedtechnical?igsh=MXY4ZTFpeTBmbHph" target='_blank'><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.tiktok.com/@aioptimizedservices?is_from_webapp=1&sender_device=pc" target='_blank'><i class="fab fa-tiktok"></i></a></li>
+                            
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-2-5 mb-lg-0">
                         <div class="pl-lg-1-6">
                             <h3 class="text-primary h5 mb-1-6">Our Services</h3>
                             <ul class="footer-list">
-                                <li><Link to={'/services'}>False Ceiling</Link></li>
-                                <li><Link to={'/services'}>AC Repairs and Installation</Link></li>
-                                <li><Link to={'/services'}>Handyman & Maintenance</Link></li>
-                                <li><Link to={'/services'}>Plumbing & Sanitary Installation </Link></li>
+                                <li><Link to={'/AcOrder/:serviceId'}>False Ceiling</Link></li>
+                                <li><Link to={'/PestOrder/:serviceId'}>AC Repairs and Installation</Link></li>
+                                <li><Link to={'/HandymanOrder/:serviceId'}>Handyman & Maintenance</Link></li>
+                                <li><Link to={'/PlumbingOrder/:serviceId'}>Plumbing & Sanitary Installation </Link></li>
                             </ul>
                         </div>
                     </div>

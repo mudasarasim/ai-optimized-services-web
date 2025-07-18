@@ -14,7 +14,7 @@ import image12 from '../assets/Images/Furniture Cleaning.jpg';
 import image13 from '../assets/Images/Home Deep Cleaning.jpg';
 import image14 from '../assets/Images/Deep Clean Kitchen & Bathroom.jpg';
 import image15 from '../assets/Images/Cargo Services.jpg';
-import image16 from '../assets/Images/Women’s Salon.jpg';
+import image16 from '../assets/Images/Women Salon.jpg';
 import image17 from '../assets/Images/Water Tank Cleaning.jpg';
 import image18 from '../assets/Images/Home Cleaning.jpg';
 import image19 from '../assets/Images/Mens Salon.jpg';

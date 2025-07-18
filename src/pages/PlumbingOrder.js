@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './ServiceDetail.css';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from "../config"; // import base url
+
 import image6 from '../assets/Images/Plumbing & Sanitary Installation.jpg';
 import image2 from '../assets/Images/services3.png';
-import image3 from '../assets/Images/services3.png'; // Portfolio 1
-import image4 from '../assets/Images/services4.png'; // Portfolio 2
-import image5 from '../assets/Images/services5.png'; // Portfolio 3
+import image3 from '../assets/Images/services3.png';
+import image4 from '../assets/Images/services4.png';
+import image5 from '../assets/Images/services5.png';
 
-const benefits = [
+const benefits = [   
   {
     icon: 'fa-solid fa-faucet-drip',
     title: 'Effective Plumbing Solutions',
@@ -69,39 +71,47 @@ const processSteps = [
 
 const ServiceDetail = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    service: 'Air-Conditioning, Ventilation & Air Filtration Systems',
-    comments: '',
+
+ const [formData, setFormData] = useState({
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  service: 'Plumbing And Sanitary Installation',
+  comments: ''
+});
+
+const handleChange = (e) => {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = new FormData();
+  Object.entries(formData).forEach(([key, value]) => {
+    data.append(key, value);
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  try {
+    const response = await fetch(`${BASE_URL}/sendmail.php`, {
+      method: "POST",
+      body: data
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { firstName, lastName, email, phone, service, comments } = formData;
-    const subject = encodeURIComponent("Service Inquiry from Website");
-    const body = encodeURIComponent(`
-      Name: ${firstName} ${lastName}
-      Email: ${email}
-      Phone: ${phone}
-      Service: ${service}
-      Comments: ${comments}
-    `);
+    const result = await response.text();
+    alert(result);
+  } catch (error) {
+    alert("Error sending form");
+    console.error(error);
+  }
+};
 
-    window.location.href = `mailto:aioptimizedservices@gmail.com?subject=${subject}&body=${body}`;
-  };
 
   return (
     <>
       {/* Page Banner */}
-      <section
-        className="page-title-section bg-img cover-background top-position theme-overlay-dark"
+      <section className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
         style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
       >
@@ -113,14 +123,14 @@ const ServiceDetail = () => {
             <div className="col-md-12">
               <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="#!">Services/PLUMBING MADE SIMPLE</a></li>
+                <li><a href="#!">Services / PLUMBING MADE SIMPLE</a></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 1: Intro */}
+      {/* Section 1 */}
       <div className="container py-5">
         <div className="row align-items-center">
           <div className="col-lg-6">
@@ -129,12 +139,9 @@ const ServiceDetail = () => {
               At Ai Optimized, we provide expert plumbing and sanitary installation services tailored to your needs.
               Our skilled team ensures efficient systems that promote hygiene and functionality in your residential or commercial space.
             </p>
-           <button
-      className="btn btn-dark"
-      onClick={() => navigate('/contact')}
-    >
-      Contact Today <i className="bi bi-arrow-up-right"></i>
-    </button>
+            <button className="btn btn-dark" onClick={() => navigate('/contact')}>
+              Contact Today <i className="bi bi-arrow-up-right"></i>
+            </button>
           </div>
           <div className="col-lg-6">
             <img src={image6} alt="Plumbing Installation" className="img-fluid rounded" />
@@ -155,7 +162,6 @@ const ServiceDetail = () => {
         </div>
 
         <h4 className="fw-bold mb-4">Benefits of Our Plumbing & Sanitary Installation Services</h4>
-
         <div className="row g-4">
           {benefits.map((benefit, index) => (
             <div key={index} className="col-md-6 col-lg-4">
@@ -169,7 +175,7 @@ const ServiceDetail = () => {
         </div>
       </div>
 
-      {/* Section 3: Installation and Maintenance Steps */}
+      {/* Section 3: Process */}
       <div className="container-fluid bg-dark text-white py-5">
         <div className="container">
           <div className="row align-items-center">
@@ -184,7 +190,7 @@ const ServiceDetail = () => {
                 {processSteps.map((step, index) => (
                   <div className="col-sm-6 mb-4" key={index}>
                     <h6 className="fw-bold text-white">{step.title}</h6>
-                    <p className="small text-white  mb-0">{step.desc}</p>
+                    <p className="small text-white mb-0">{step.desc}</p>
                   </div>
                 ))}
               </div>
@@ -193,25 +199,21 @@ const ServiceDetail = () => {
         </div>
       </div>
 
-      {/* Section 4: Portfolio Gallery */}
+      {/* Section 4: Portfolio */}
       <div className="container py-5">
         <p className="text-uppercase text-warning fw-bold">PAST WORK</p>
         <h2 className="fw-bold">OUR PORTFOLIO</h2>
         <p className="text-danger fw-semibold mb-4">GALLERY</p>
         <div className="row g-4">
-          <div className="col-md-4">
-            <img src={image3} alt="Portfolio 1" className="img-fluid rounded shadow-sm" />
-          </div>
-          <div className="col-md-4">
-            <img src={image4} alt="Portfolio 2" className="img-fluid rounded shadow-sm" />
-          </div>
-          <div className="col-md-4">
-            <img src={image5} alt="Portfolio 3" className="img-fluid rounded shadow-sm" />
-          </div>
+          {[image3, image4, image5].map((img, i) => (
+            <div className="col-md-4" key={i}>
+              <img src={img} alt={`Portfolio ${i + 1}`} className="img-fluid rounded shadow-sm" />
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Section 5: Contact Form (mailto) */}
+      {/* Section 5: Contact Form */}
       <div className="container py-5">
         <p className="text-uppercase text-warning fw-bold">GET IN TOUCH</p>
         <h2 className="fw-bold">FILL THE FORM BELOW</h2>
@@ -219,52 +221,24 @@ const ServiceDetail = () => {
         <form onSubmit={handleSubmit}>
           <div className="row g-3">
             <div className="col-md-6">
-              <label className="form-label">First Name</label>
+              <label htmlFor="firstName" className="form-label">First Name</label>
               <input type="text" name="firstName" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Last Name</label>
+              <label htmlFor="lastName" className="form-label">Last Name</label>
               <input type="text" name="lastName" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Email</label>
+              <label htmlFor="email" className="form-label">Email</label>
               <input type="email" name="email" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Phone Number</label>
+              <label htmlFor="phone" className="form-label">Phone Number</label>
               <input type="tel" name="phone" className="form-control" required onChange={handleChange} />
             </div>
+          
             <div className="col-12">
-              <label className="form-label">Please Choose Service</label>
-              <select name="service" className="form-select" onChange={handleChange}>
-                <option>Air-Conditioning, Ventilation & Air Filtration Systems</option>
-                <option>Plumbing & Sanitary Installation</option>
-                <option>Electrical Wiring & Panel Installations</option>
-                <option>False Ceiling</option>
-                <option>Electromechanical Equipment Installation and Maintenance</option>
-                <option>Wallpaper Fixing Works</option>
-                <option>Plaster Works</option>
-                <option>Painting Contracting</option>
-                <option>A/C Installation & Maintenance</option>
-                <option>A/C Cleaning</option>
-                <option>Handyman & Maintenance</option>
-                <option>Home Cleaning</option>
-                <option>Furniture Cleaning</option>
-                <option>Home Deep Cleaning</option>
-                <option>Deep Clean Kitchen & Bathroom-</option>
-                <option>Water Tank Cleaning</option>
-                <option>Window Cleaning</option>
-                <option>Car Wash</option>
-                <option>Men's Salon</option>
-                <option>Women’s Salon</option>
-                <option>Makeup</option>
-                <option>Cargo Services </option>
-
-
-              </select>
-            </div>
-            <div className="col-12">
-              <label className="form-label">Additional Comments</label>
+              <label htmlFor="comments" className="form-label">Additional Comments</label>
               <textarea name="comments" className="form-control" rows="4" onChange={handleChange}></textarea>
             </div>
             <div className="col-12">

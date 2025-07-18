@@ -161,10 +161,9 @@ const Contact = () => {
                             <div class="col-md-6 col-lg-12">
                                 <div class="contact-box p-1-6">
                                     <ul class="social-icon3 w-100 text-center">
-                                        <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
-                                        <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="https://www.facebook.com/profile.php?id=61577901052283" target='_blank'><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://www.instagram.com/aioptimizedtechnical?igsh=MXY4ZTFpeTBmbHph" target='_blank'><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://www.tiktok.com/@aioptimizedservices?is_from_webapp=1&sender_device=pc" target='_blank'><i class="fab fa-tiktok"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

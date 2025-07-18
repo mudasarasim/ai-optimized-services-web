@@ -5,6 +5,7 @@ import image3 from '../assets/Images/wl4.png'; // Portfolio 1
 import image4 from '../assets/Images/wl1.png'; // Portfolio 2
 import image5 from '../assets/Images/wl2.png'; // Portfolio 3
 import image6 from '../assets/Images/wl3.png'; // Portfolio 4
+import BASE_URL from "../config"; // import base url
 
 
 const benefits = [
@@ -68,33 +69,40 @@ const processSteps = [
 ];
 
 const ServiceDetail = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    service: 'Air-Conditioning, Ventilation & Air Filtration Systems',
-    comments: '',
+ const [formData, setFormData] = useState({
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  service: 'Wallpaper Fixing Works',
+  comments: ''
+});
+
+const handleChange = (e) => {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = new FormData();
+  Object.entries(formData).forEach(([key, value]) => {
+    data.append(key, value);
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  try {
+    const response = await fetch(`${BASE_URL}/sendmail.php`, {
+      method: "POST",
+      body: data
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { firstName, lastName, email, phone, service, comments } = formData;
-    const subject = encodeURIComponent("Service Inquiry from Website");
-    const body = encodeURIComponent(`
-      Name: ${firstName} ${lastName}
-      Email: ${email}
-      Phone: ${phone}
-      Service: ${service}
-      Comments: ${comments}
-    `);
-
-    window.location.href = `mailto:aioptimizedservices@gmail.com?subject=${subject}&body=${body}`;
-  };
+    const result = await response.text();
+    alert(result);
+  } catch (error) {
+    alert("Error sending form");
+    console.error(error);
+  }
+};
 
   return (
     <>
@@ -213,31 +221,24 @@ const ServiceDetail = () => {
         <form onSubmit={handleSubmit}>
           <div className="row g-3">
             <div className="col-md-6">
-              <label className="form-label">First Name</label>
+              <label htmlFor="firstName" className="form-label">First Name</label>
               <input type="text" name="firstName" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Last Name</label>
+              <label htmlFor="lastName" className="form-label">Last Name</label>
               <input type="text" name="lastName" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Email</label>
+              <label htmlFor="email" className="form-label">Email</label>
               <input type="email" name="email" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Phone Number</label>
+              <label htmlFor="phone" className="form-label">Phone Number</label>
               <input type="tel" name="phone" className="form-control" required onChange={handleChange} />
             </div>
+          
             <div className="col-12">
-              <label className="form-label">Please Choose Service</label>
-              <select name="service" className="form-select" onChange={handleChange}>
-                <option>Air-Conditioning, Ventilation & Air Filtration Systems</option>
-                <option>Plumbing & Sanitary Installation</option>
-                <option>Electrical Wiring & Panel Installations</option>
-              </select>
-            </div>
-            <div className="col-12">
-              <label className="form-label">Additional Comments</label>
+              <label htmlFor="comments" className="form-label">Additional Comments</label>
               <textarea name="comments" className="form-control" rows="4" onChange={handleChange}></textarea>
             </div>
             <div className="col-12">

@@ -3,6 +3,7 @@ import './ServiceDetail.css';
 import image2 from '../assets/Images/t1.png';
 import image3 from '../assets/Images/t2.png'; // Portfolio 1
 import image4 from '../assets/Images/t3.png'; // Portfolio 2
+import BASE_URL from "../config"; // import base url
 
 
 
@@ -68,32 +69,39 @@ const processSteps = [
 
 const ServiceDetail = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    service: 'Air-Conditioning, Ventilation & Air Filtration Systems',
-    comments: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  service: 'Water Tank Cleaning',
+  comments: ''
+});
+
+const handleChange = (e) => {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = new FormData();
+  Object.entries(formData).forEach(([key, value]) => {
+    data.append(key, value);
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  try {
+    const response = await fetch(`${BASE_URL}/sendmail.php`, {
+      method: "POST",
+      body: data
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { firstName, lastName, email, phone, service, comments } = formData;
-    const subject = encodeURIComponent("Service Inquiry from Website");
-    const body = encodeURIComponent(`
-      Name: ${firstName} ${lastName}
-      Email: ${email}
-      Phone: ${phone}
-      Service: ${service}
-      Comments: ${comments}
-    `);
-
-    window.location.href = `mailto:aioptimizedservices@gmail.com?subject=${subject}&body=${body}`;
-  };
+    const result = await response.text();
+    alert(result);
+  } catch (error) {
+    alert("Error sending form");
+    console.error(error);
+  }
+};
 
   return (
     <>
@@ -204,57 +212,31 @@ Final rinse and refill with fresh water for safe consumption.</p>
       </div>
 
       {/* Section 5: Contact Form (mailto) */}
-      <div className="container py-5">
+        <div className="container py-5">
         <p className="text-uppercase text-warning fw-bold">GET IN TOUCH</p>
         <h2 className="fw-bold">FILL THE FORM BELOW</h2>
         <p className="text-danger fw-semibold mb-4">YOUR VISION, OUR CRAFT</p>
         <form onSubmit={handleSubmit}>
           <div className="row g-3">
             <div className="col-md-6">
-              <label className="form-label">First Name</label>
+              <label htmlFor="firstName" className="form-label">First Name</label>
               <input type="text" name="firstName" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Last Name</label>
+              <label htmlFor="lastName" className="form-label">Last Name</label>
               <input type="text" name="lastName" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Email</label>
+              <label htmlFor="email" className="form-label">Email</label>
               <input type="email" name="email" className="form-control" required onChange={handleChange} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Phone Number</label>
+              <label htmlFor="phone" className="form-label">Phone Number</label>
               <input type="tel" name="phone" className="form-control" required onChange={handleChange} />
             </div>
+          
             <div className="col-12">
-              <label className="form-label">Please Choose Service</label>
-              <select name="service" className="form-select" onChange={handleChange}>
-                <option>Air-Conditioning, Ventilation & Air Filtration Systems</option>
-                <option>Plumbing & Sanitary Installation</option>
-                <option>Electrical Wiring & Panel Installations</option>
-                <option>False Ceiling</option>
-                <option>Electromechanical Equipment Installation and Maintenance</option>
-                <option>Wallpaper Fixing Works</option>
-                <option>Plaster Works</option>
-                <option>Painting Contracting</option>
-                <option>A/C Installation & Maintenance</option>
-                <option>A/C Cleaning</option>
-                <option>Handyman & Maintenance</option>
-                <option>Home Cleaning</option>
-                <option>Furniture Cleaning</option>
-                <option>Home Deep Cleaning</option>
-                <option>Deep Clean Kitchen & Bathroom-</option>
-                <option>Water Tank Cleaning</option>
-                <option>Window Cleaning</option>
-                <option>Car Wash</option>
-                <option>Men's Salon</option>
-                <option>Women’s Salon</option>
-                <option>Makeup</option>
-                <option>Cargo Services </option>
-              </select>
-            </div>
-            <div className="col-12">
-              <label className="form-label">Additional Comments</label>
+              <label htmlFor="comments" className="form-label">Additional Comments</label>
               <textarea name="comments" className="form-control" rows="4" onChange={handleChange}></textarea>
             </div>
             <div className="col-12">
