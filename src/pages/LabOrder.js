@@ -102,17 +102,30 @@ const ServiceDetail = () => {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("img/content/bg-05.jpg")' }}
-      ></section>
+        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Painting Contracting</h1>
+            </div>
+            <div className="col-md-12">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#!">Services/Painting Contracting</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Section 1: Intro */}
       <div className="container py-5">
         <div className="row align-items-center">
           <div className="col-lg-6">
-            <p className="text-uppercase text-warning fw-bold mb-2">JUSOOR ALNOKHBA</p>
             <h1 className="fw-bold display-4 mb-4">PAINTING MADE SIMPLE</h1>
             <p className="mb-4">
-             At Jusoor Alnokhba, we provide expert painting services tailored to your aesthetic and functional needs.
+             At Ai Optimized, we provide expert painting services tailored to your aesthetic and functional needs.
             </p>
             <button className="btn btn-dark">
               Contact Today <i className="bi bi-arrow-up-right"></i>

@@ -102,17 +102,30 @@ const ServiceDetail = () => {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("img/content/bg-05.jpg")' }}
-      ></section>
+        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Wallpaper Fixing Works</h1>
+            </div>
+            <div className="col-md-12">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#!">Services/Wallpaper Fixing Works</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Section 1: Intro */}
       <div className="container py-5">
         <div className="row align-items-center">
           <div className="col-lg-6">
-            <p className="text-uppercase text-warning fw-bold mb-2">JUSOOR ALNOKHBA</p>
             <h1 className="fw-bold display-4 mb-4">TRANSFORM YOUR WALLS</h1>
             <p className="mb-4">
-             At Jusoor Alnokhba, we specialize in Wallpaper Fixing Works, transforming walls into stylish statements with flawless installations for homes and offices.
+             At Ai Optimized, we specialize in Wallpaper Fixing Works, transforming walls into stylish statements with flawless installations for homes and offices.
             </p>
             <button className="btn btn-dark">
               Contact Today <i className="bi bi-arrow-up-right"></i>

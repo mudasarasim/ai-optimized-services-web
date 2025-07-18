@@ -101,17 +101,30 @@ const ServiceDetail = () => {
   return (
     <>
       {/* Page Banner */}
-      <section
+     <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("img/content/bg-05.jpg")' }}
-      ></section>
+        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Women’s Salon</h1>
+            </div>
+            <div className="col-md-12">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#!">Services/Women’s Salon</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Section 1: Intro */}
       <div className="container py-5">
         <div className="row align-items-center">
           <div className="col-lg-6">
-            <p className="text-uppercase text-warning fw-bold mb-2">JUSOOR ALNOKHBA</p>
             <h1 className="fw-bold display-4 mb-4">Women’s Salon</h1>
             <p className="mb-4">
              Visit us at Beauty Salon and immerse your self inside the world of refined beauty offerings.

@@ -102,15 +102,28 @@ const ServiceDetail = () => {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("img/content/bg-05.jpg")' }}
-      ></section>
+        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Plaster Works</h1>
+            </div>
+            <div className="col-md-12">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#!">Services/Plaster Works</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Section 1: Intro */}
       <div className="container py-5">
         <div className="row align-items-center">
           <div className="col-lg-6">
-            <p className="text-uppercase text-warning fw-bold mb-2">JUSOOR ALNOKHBA</p>
-            <h1 className="fw-bold display-4 mb-4">Elevate Your Space.</h1>
+            <h1 className="fw-bold display-4 mb-4">Plaster Works Services.</h1>
             <p className="mb-4">
              Transform your interiors with our expert plaster work services.
             </p>
@@ -131,7 +144,7 @@ const ServiceDetail = () => {
           <h2 className="fw-bold">PLASTER WORKS</h2>
           <p className="text-danger fw-semibold">CRAFTING STYLE AND FUNCTIONALITY</p>
           <p className="text-muted">
-         At Jusoor Alnokhba, we specialize in plaster work that enhances both the aesthetics and functionality of any space. Our skilled team ensures seamless plastering that provides a smooth finish, improves durability, and elevates the overall ambiance in both residential and commercial environments.
+         At Ai Optimized, we specialize in plaster work that enhances both the aesthetics and functionality of any space. Our skilled team ensures seamless plastering that provides a smooth finish, improves durability, and elevates the overall ambiance in both residential and commercial environments.
           </p>
         </div>
 

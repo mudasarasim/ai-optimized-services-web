@@ -45,7 +45,7 @@ library.add(
 function PlaceOrder() {
   const { serviceId } = useParams();
   const navigate = useNavigate();
-  const [serviceName] = useState("Home Deep CLeaning");
+  const [serviceName] = useState("Deep CLean Kitchen & Bathroom");
   const [professionals, setProfessionals] = useState(1);
   const [hours, setHours] = useState(1);
   const [material, setMaterial] = useState(false);
@@ -139,17 +139,17 @@ function PlaceOrder() {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("img/content/bg-05.jpg")' }}
+        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
       >
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1>Place Order</h1>
+              <h1>Deep CLean Kitchen & Bathroom</h1>
             </div>
             <div className="col-md-12">
               <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="#!">Place Order</a></li>
+                <li><a href="#!">Deep CLean Kitchen & Bathroom</a></li>
               </ul>
             </div>
           </div>
@@ -157,7 +157,7 @@ function PlaceOrder() {
       </section>
     <div className="booking-container row">
       <div className="col-md-7">
-        <h3>Home Deep CLeaning</h3>
+        <h3>Deep CLean Kitchen & Bathroom</h3>
         <form>
           <p>How many hours do you need your professional to stay?</p>
           <div className="option-group">

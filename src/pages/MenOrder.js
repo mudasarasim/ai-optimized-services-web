@@ -119,17 +119,17 @@ function PlaceOrder() {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("img/content/bg-05.jpg")' }}
+        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
       >
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1>Place Order</h1>
+              <h1>Men's Saloon</h1>
             </div>
             <div className="col-md-12">
               <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="#!">Place Order</a></li>
+                <li><a href="#!">Men's Saloon</a></li>
               </ul>
             </div>
           </div>
