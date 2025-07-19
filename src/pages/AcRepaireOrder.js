@@ -7,6 +7,7 @@ import image4 from '../assets/Images/mc3.png'; // Portfolio 2
 import image5 from '../assets/Images/mc4.png'; // Portfolio 3
 import image6 from '../assets/Images/mc5.png'; // Portfolio 4
 import BASE_URL from "../config"; // import base url
+import Swal from 'sweetalert2';
 
 
 const benefits = [
@@ -86,26 +87,67 @@ const handleChange = (e) => {
 };
 
 const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const data = new FormData();
-  Object.entries(formData).forEach(([key, value]) => {
-    data.append(key, value);
-  });
-
-  try {
-    const response = await fetch(`${BASE_URL}/sendmail.php`, {
-      method: "POST",
-      body: data
+    // ✅ Show loading modal
+    Swal.fire({
+      title: 'Sending...',
+      text: 'Please wait',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
     });
 
-    const result = await response.text();
-    alert(result);
-  } catch (error) {
-    alert("Error sending form");
-    console.error(error);
-  }
-};
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
+    });
+
+    try {
+      const response = await fetch(`${BASE_URL}/sendmail.php`, {
+        method: "POST",
+        body: data
+      });
+
+      const result = await response.text();
+
+      if (response.ok) {
+        // ✅ Replace loading with success modal
+        Swal.fire({
+          icon: 'success',
+          title: 'Email Sent!',
+          text: '✅ Thank you for reaching out. We’ll get back to you shortly.',
+          confirmButtonColor: '#FCD915',
+          confirmButtonText: 'OK',
+        });
+
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          service: 'Cargo Services',
+          comments: ''
+        });
+      } else {
+        // ❌ Replace loading with error modal
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: '❌ Failed to send your message. Please try again later.',
+          confirmButtonColor: '#d33'
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Unexpected Error',
+        text: '❌ Something went wrong. Please try again later.',
+      });
+    }
+  };
 
   return (
     <>
@@ -249,8 +291,10 @@ const handleSubmit = async (e) => {
               <label htmlFor="comments" className="form-label">Additional Comments</label>
               <textarea name="comments" className="form-control" rows="4" onChange={handleChange}></textarea>
             </div>
-            <div className="col-12">
-              <button type="submit" className="btn btn-primary w-100">Submit</button>
+            <div className="col-12 d-flex align-items-center justify-content-center">
+              <button type="submit" className="btn w-50" style={{ background: '#FCD915', color: 'white' }}>
+                Submit
+              </button>
             </div>
           </div>
         </form>

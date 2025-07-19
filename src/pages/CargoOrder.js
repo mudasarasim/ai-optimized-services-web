@@ -7,6 +7,7 @@ import image3 from '../assets/Images/0r1.png'; // Portfolio 1
 import image4 from '../assets/Images/or2.png'; // Portfolio 2
 import image5 from '../assets/Images/or3.png'; // Portfolio 3
 import BASE_URL from "../config"; // import base url
+import Swal from 'sweetalert2';
 
 const benefits = [
   {
@@ -71,44 +72,86 @@ const processSteps = [
 const ServiceDetail = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  service: 'Cargo Services',
-  comments: ''
-});
-
-const handleChange = (e) => {
-  setFormData({ ...formData, [e.target.name]: e.target.value });
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  const data = new FormData();
-  Object.entries(formData).forEach(([key, value]) => {
-    data.append(key, value);
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: 'Cargo Services',
+    comments: ''
   });
 
-  try {
-    const response = await fetch(`${BASE_URL}/sendmail.php`, {
-      method: "POST",
-      body: data
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // ✅ Show loading modal
+    Swal.fire({
+      title: 'Sending...',
+      text: 'Please wait',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
     });
 
-    const result = await response.text();
-    alert(result);
-  } catch (error) {
-    alert("Error sending form");
-    console.error(error);
-  }
-};
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
+    });
+
+    try {
+      const response = await fetch(`${BASE_URL}/sendmail.php`, {
+        method: "POST",
+        body: data
+      });
+
+      const result = await response.text();
+
+      if (response.ok) {
+        // ✅ Replace loading with success modal
+        Swal.fire({
+          icon: 'success',
+          title: 'Email Sent!',
+          text: '✅ Thank you for reaching out. We’ll get back to you shortly.',
+          confirmButtonColor: '#FCD915',
+          confirmButtonText: 'OK',
+        });
+
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          service: 'Cargo Services',
+          comments: ''
+        });
+      } else {
+        // ❌ Replace loading with error modal
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: '❌ Failed to send your message. Please try again later.',
+          confirmButtonColor: '#d33'
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Unexpected Error',
+        text: '❌ Something went wrong. Please try again later.',
+      });
+    }
+  };
+
 
   return (
     <>
       {/* Page Banner */}
-     <section
+      <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
         style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
@@ -136,12 +179,12 @@ const handleSubmit = async (e) => {
             <p className="mb-4">
               Ever dealt with a logistics provider that gives you vague updates like “Your shipment is in transit” but won’t tell you where it actually is?
             </p>
-           <button
-      className="btn btn-dark"
-      onClick={() => navigate('/contact')}
-    >
-      Contact Today <i className="bi bi-arrow-up-right"></i>
-    </button>
+            <button
+              className="btn btn-dark"
+              onClick={() => navigate('/contact')}
+            >
+              Contact Today <i className="bi bi-arrow-up-right"></i>
+            </button>
           </div>
           <div className="col-lg-6">
             <img src={image6} alt="Plumbing Installation" className="img-fluid rounded" />
@@ -239,14 +282,17 @@ const handleSubmit = async (e) => {
               <label htmlFor="phone" className="form-label">Phone Number</label>
               <input type="tel" name="phone" className="form-control" required onChange={handleChange} />
             </div>
-          
+
             <div className="col-12">
               <label htmlFor="comments" className="form-label">Additional Comments</label>
               <textarea name="comments" className="form-control" rows="4" onChange={handleChange}></textarea>
             </div>
-            <div className="col-12">
-              <button type="submit" className="btn btn-primary w-100">Submit</button>
+            <div className="col-12 d-flex align-items-center justify-content-center">
+              <button type="submit" className="btn w-50" style={{ background: '#FCD915', color: 'white' }}>
+                Submit
+              </button>
             </div>
+
           </div>
         </form>
       </div>
