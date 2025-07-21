@@ -104,7 +104,7 @@ const ServicesHeader = () => {
       icon: faPersonDress,
       title: 'Wallpaper Fixing Works',
       image: image5,
-      desc: 'At Jusoor Alnokhba, we specialize in Wallpaper Fixing Works, transforming walls into stylish statements with flawless installations for homes and offices.',
+      desc: 'At Ai Optimized, we specialize in Wallpaper Fixing Works, transforming walls into stylish statements with flawless installations for homes and offices.',
     },
     {
       icon: faHandSparkles,
@@ -116,7 +116,7 @@ const ServicesHeader = () => {
       icon: faFlaskVial,
       title: 'Painting Contracting',
       image: image7,
-      desc: 'At Jusoor Alnokhba, we provide expert painting services tailored to your aesthetic and functional needs.',
+      desc: 'At Ai Optimized, we provide expert painting services tailored to your aesthetic and functional needs.',
     },
     {
       icon: faSpaghettiMonsterFlying,

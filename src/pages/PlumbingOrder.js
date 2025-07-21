@@ -198,7 +198,7 @@ const handleSubmit = async (e) => {
           <h2 className="fw-bold">PLUMBING & SANITARY INSTALLATION SERVICES</h2>
           <p className="text-danger fw-semibold">ENSURING FUNCTIONALITY AND EFFICIENCY</p>
           <p className="text-muted">
-            At Jusoor Alnokhba, we specialize in comprehensive plumbing and sanitary installation services.
+            At Ai Optimized, we specialize in comprehensive plumbing and sanitary installation services.
             Our experienced team guarantees efficient systems that promote hygiene and functionality in both residential and commercial environments.
           </p>
         </div>

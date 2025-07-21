@@ -194,7 +194,7 @@ const handleSubmit = async (e) => {
           <h2 className="fw-bold">WALLPAPER FIXING WORKS</h2>
           <p className="text-danger fw-semibold">STYLE, PRECISION, PERFECTION</p>
           <p className="text-muted">
-          At Jusoor Alnokhba, our Wallpaper Fixing Works provide a transformative solution for your interiors. We offer a wide selection of high-quality wallpapers, ensuring you find the perfect design to enhance your space. Our skilled professionals handle every aspect of the installation process, from wall preparation to precise application, guaranteeing a seamless and flawless finish. Whether for residential or commercial spaces, we focus on delivering exceptional results that reflect your style and elevate your environment. Trust us to bring your vision to life with our expert wallpaper fixing services
+          At Ai Optimized, our Wallpaper Fixing Works provide a transformative solution for your interiors. We offer a wide selection of high-quality wallpapers, ensuring you find the perfect design to enhance your space. Our skilled professionals handle every aspect of the installation process, from wall preparation to precise application, guaranteeing a seamless and flawless finish. Whether for residential or commercial spaces, we focus on delivering exceptional results that reflect your style and elevate your environment. Trust us to bring your vision to life with our expert wallpaper fixing services
           </p>
         </div>
 
