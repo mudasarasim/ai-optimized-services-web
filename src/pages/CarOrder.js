@@ -10,6 +10,7 @@ import image7 from '../assets/Images/car3.png';
 import image8 from '../assets/Images/car1.png';
 import image9 from '../assets/Images/car1.png';
 import image10 from '../assets/Images/car1.png';
+import image11 from '../assets/Images/image9.png';
 
 
 import axios from "axios";
@@ -131,7 +132,7 @@ function PlaceOrder() {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+        style={{ backgroundImage: `url(${image11})` }}
       >
         <div className="container">
           <div className="row">

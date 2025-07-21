@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import image1 from '../assets/Images/ar1.png';
 import image2 from '../assets/Images/ar2.png';
 import image3 from '../assets/Images/ar3.png';
-
+import image19 from '../assets/Images/Mens Salon.jpg';
 
 
 
@@ -119,7 +119,7 @@ function PlaceOrder() {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+        style={{ backgroundImage: `url(${image19})` }}
       >
         <div className="container">
           <div className="row">

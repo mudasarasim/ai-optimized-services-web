@@ -65,7 +65,7 @@ const processSteps = [
   },
   {
     title: 'Final Presentation',
-    desc: 'We prepare and present your finished plaster work, ensuring it’s ready for use and enhances your space.',
+    desc: 'We prepare and present your   finished plaster work, ensuring it’s ready for use and enhances your space.',
   }
 ];
 
@@ -151,7 +151,7 @@ const handleSubmit = async (e) => {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+        style={{ backgroundImage: 'url("../img/content/plasterwork.jpg")' }}
       >
         <div className="container">
           <div className="row">

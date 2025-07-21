@@ -25,6 +25,8 @@ import image20 from '../assets/Images/n1.png';
 import image21 from '../assets/Images/n2.png';
 import image22 from '../assets/Images/n3.png';
 
+import image23 from '../assets/Images/Furniture Cleaning.jpg';
+
 import axios from "axios";
 import './PlaceOrder.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -161,7 +163,7 @@ function PlaceOrder() {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+        style={{ backgroundImage: 'url("../img/content/furnitureclean.jpg")' }}
       >
         <div className="container">
           <div className="row">

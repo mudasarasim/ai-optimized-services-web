@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import image1 from '../assets/Images/v1.png';
 import image2 from '../assets/Images/v2.png';
+import image3 from '../assets/Images/Home Deep Cleaning.jpg';
 
 import axios from "axios";
 import './PlaceOrder.css';
@@ -123,7 +124,7 @@ function PlaceOrder() {
       <section
         className="page-title-section bg-img cover-background top-position theme-overlay-dark"
         data-overlay-dark="6"
-        style={{ backgroundImage: 'url("../img/content/bg-05.jpg")' }}
+        style={{ backgroundImage: 'url("../img/content/Home Deep Cleaning.jpg")' }}
       >
         <div className="container">
           <div className="row">
